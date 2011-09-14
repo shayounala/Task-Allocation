@@ -89,12 +89,15 @@ public class Experiment {
 		Task.MinDeadline = 5;
 		Task.Valuedown = -10;
 		Task.Valueup = 10;
-		Task.MaxExtra = 0.5;
+		Task.MaxExtra = 1;
+		Task.MinExtra = 0.5;
 
 		Agent.MaxResource = 20;
 		Agent.MinResource = 5;
 		Agent.Percent_Profit = 0.5;// .1+0.2*((number_Experiment-1)/30);
 		Agent.stragety = 100;
+		Agent.MaxFuture =true;
+		Agent.Cooperation = true;
 
 		Allocation.Max_TaskRate = 4;
 		Allocation.Min_TaskRate = 4;

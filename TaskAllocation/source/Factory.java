@@ -9,6 +9,7 @@ public class Factory {
 		NewTask.flag = true;
 		NewTask.Task_Resources = Factory.createTask_Resources(NewTask);
 		NewTask.value = NewTask.Task_Resources.getValue()*(100+Functions.getRandom(Task.Valuedown,Task.Valueup))/100.00;
+		NewTask.extra = Task.MinExtra+(Task.MaxExtra-Task.MinExtra)*Functions.getRandom(0, 100)/100;
 		NewTask.Deadline = Functions.getRandom(Task.MinDeadline, Task.MaxDeadline);
 		NewTask.AllocatedAgents.add(Experiment.experiment.getAgents().get(Functions.getRandom(0, Allocation.Number_Agent-1)));
 		return NewTask;

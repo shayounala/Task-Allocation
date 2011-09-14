@@ -232,8 +232,8 @@ public class Allocation {
 		
 		
 		//Initial the cooperation structure
-		createCoopStructure();
 		addSelfCooperation();
+		createCoopStructure();
 		//addRandomCooperation();
 		
 		//Initial the communication structure

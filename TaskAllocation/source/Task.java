@@ -15,6 +15,7 @@ public class Task {
 	public static int MaxResource;
 	public static int MinResource;
 	public static double MaxExtra;
+	public static double MinExtra;
 	public final static int LEFT =0;
 	public final static int ALLOOCATED =1;
 	public final static int FAIL =2;
@@ -39,6 +40,7 @@ public class Task {
 	public double allocationCost;
 	public boolean flag;
 	public int state;
+	public double extra;
 	
 	
 	public Task(){//Initialization
@@ -61,6 +63,13 @@ public class Task {
 				if(rate_Resources>rate_SingleResource || rate_Resources == 0){
 					rate_Resources = rate_SingleResource;
 				}
+			}
+		}
+		
+		if(Agent.MaxFuture){
+			double maxrate_Resources = Math.sqrt((1+Math.pow(extra, -1))/3);
+			if(rate_Resources>maxrate_Resources){
+				rate_Resources = maxrate_Resources;
 			}
 		}
 		System.out.println("rate Resources:"+rate_Resources);
@@ -109,7 +118,7 @@ public class Task {
 
 	private double getIncome(double rate_Resources) {
 		// TODO Auto-generated method stub
-		double income = this.value*(this.Deadline-this.Deadline/rate_Resources)/this.Deadline*Task.MaxExtra+value;
+		double income = this.value*(this.Deadline-this.Deadline/Math.pow(extra, 2))/this.Deadline*Task.MaxExtra+value;
 		if(income<=0){
 			System.out.println("rate"+rate_Resources);
 			System.exit(0);

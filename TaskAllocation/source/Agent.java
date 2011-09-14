@@ -50,6 +50,8 @@ public class Agent {
 	public static int MinResource;
 	public static int MaxResource;
 	public static double Percent_Profit;
+	public static boolean MaxFuture;
+	public static boolean Cooperation;
 
 	public Agent() {// Initialization
 		AcceptedTasks = new ArrayList<Task>();
@@ -161,6 +163,11 @@ public class Agent {
 		// System.out.println(task_TobeAllocated.AllocatedAgents.size()+""+task_TobeAllocated.flag+""+task_TobeAllocated.expected_Value+""+task_TobeAllocated.better_Value);
 		if (task_TobeAllocated.better_Value > task_TobeAllocated.expected_Value
 				&& task_TobeAllocated.expected_Value != 0) {
+			if(Agent.Cooperation){
+				this.TransferedTasks.add(task_TobeAllocated);
+				this.transfer_Income.add(0.0);
+				this.unAllocateTask(task_TobeAllocated);
+			}
 			double netProfit = Agent.Percent_Profit
 					* (task_TobeAllocated.better_Value - task_TobeAllocated.expected_Value);
 			if (this.WaitedTasks.indexOf(task_TobeAllocated) == -1) {
