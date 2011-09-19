@@ -67,8 +67,8 @@ public class Task {
 		}
 		
 		if(Agent.MaxFuture){
-			double maxrate_Resources = Math.sqrt((1+Math.pow(extra, -1))/3);
-			if(rate_Resources>maxrate_Resources){
+			double maxrate_Resources = Math.max(Math.sqrt((1+Math.pow(rate_Resources, -1))/3),1.0);
+			if(rate_Resources>maxrate_Resources && maxrate_Resources>1){
 				rate_Resources = maxrate_Resources;
 			}
 		}
@@ -118,9 +118,9 @@ public class Task {
 
 	private double getIncome(double rate_Resources) {
 		// TODO Auto-generated method stub
-		double income = this.value*(this.Deadline-this.Deadline/Math.pow(extra, 2))/this.Deadline*Task.MaxExtra+value;
+		double income = this.value*(this.Deadline-this.Deadline/Math.pow(rate_Resources, 2))/this.Deadline*Task.MaxExtra+value;
 		if(income<=0){
-			System.out.println("rate"+rate_Resources);
+			System.out.println("rate"+rate_Resources+" income: "+income+"  "+(rate_Resources>1)+" "+this.Deadline+" "+((double)this.Deadline)/Math.pow(extra, 2)+((((double)this.Deadline)-((double)this.Deadline)/Math.pow(extra, 2))));
 			System.exit(0);
 		}
 		return income;

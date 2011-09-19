@@ -67,7 +67,6 @@ public class Experiment {
 					experiment.SaveResults();
 					currentNum_Experiment += 1;
 				}
-
 				System.exit(0);
 			}
 
@@ -99,9 +98,9 @@ public class Experiment {
 		Agent.MaxFuture =true;
 		Agent.Cooperation = true;
 
-		Allocation.Max_TaskRate = 4;
-		Allocation.Min_TaskRate = 4;
-		Allocation.Allocation_Time = 25;
+		Allocation.Max_TaskRate = 1;
+		Allocation.Min_TaskRate = 1;
+		Allocation.Allocation_Time = 200;
 		Allocation.Number_Agent = 200;
 		Allocation.MaxDistance = 0.2;
 		Allocation.para_ComStructure = 0;

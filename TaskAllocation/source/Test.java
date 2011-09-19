@@ -13,7 +13,10 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		
+		/*
+		 * plot the relationship between the profit and execution time
+		 */
+		plotdots();
 		//simple Java test
 		{
 			int a =9;
@@ -102,6 +105,24 @@ public class Test {
 				//System.out.println(testallocation.getXLocation().toString()+" : "+testallocation.getXLocation()[i]+"   "+testallocation.getYLocation().toString()+" : "+testallocation.getYLocation()[i]);
 			//}
 		}
+		
+	}
+
+	private static void plotdots() {
+		// TODO Auto-generated method stub
+		int value = 100;
+		int Deadline = 6;
+		double MaxExtra = 0.5;
+		for(int i=0;i<101;i++){
+			double extra = 1+6.0*(i)/100.0;
+			double time = Deadline/extra;
+			double income = value*(Deadline-Deadline/Math.pow(extra, 2))/Deadline*MaxExtra+value;
+			double eff = income/extra;
+			//System.out.println(time);
+			System.out.println(income);
+			//System.out.println(eff);
+		}
+		System.exit(0);
 		
 	}
 

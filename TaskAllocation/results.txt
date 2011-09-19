@@ -1,0 +1,1924 @@
+TimeStamp: 1316435348203
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4070.1749994649776
+Total Basic System Income: 2477.65
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11459.296556815654
+Number of Finished Tasks: 40
+Number of Allocated Tasks: 9
+Number of Failure Tasks: 33
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.73
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4169.175254952865
+Total Basic System Income: 2742.58
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9524.531536817403
+Number of Finished Tasks: 46
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 34
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.58
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3944.6310608515173
+Total Basic System Income: 2323.6900000000005
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9477.119297090123
+Number of Finished Tasks: 43
+Number of Allocated Tasks: 7
+Number of Failure Tasks: 32
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 19.81
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3786.1258946255984
+Total Basic System Income: 2267.46
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 15433.35988788365
+Number of Finished Tasks: 40
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 33
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 22.8
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4227.540100199134
+Total Basic System Income: 2419.88
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11066.57324862425
+Number of Finished Tasks: 46
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 28
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.39
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4000.0346729693574
+Total Basic System Income: 2244.35
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12666.632685792738
+Number of Finished Tasks: 43
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 27
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.54
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4463.88300889823
+Total Basic System Income: 2683.579999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10291.998793286319
+Number of Finished Tasks: 45
+Number of Allocated Tasks: 8
+Number of Failure Tasks: 28
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.01
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3827.975475705545
+Total Basic System Income: 2309.46
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10413.140343586665
+Number of Finished Tasks: 43
+Number of Allocated Tasks: 8
+Number of Failure Tasks: 30
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.21
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3945.4932600440743
+Total Basic System Income: 2445.8300000000004
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10279.166027424122
+Number of Finished Tasks: 41
+Number of Allocated Tasks: 8
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.84
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3823.763376625736
+Total Basic System Income: 2250.73
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11596.934870266981
+Number of Finished Tasks: 42
+Number of Allocated Tasks: 11
+Number of Failure Tasks: 29
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.49
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4425.707118475761
+Total Basic System Income: 2691.6900000000005
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9835.38473081414
+Number of Finished Tasks: 45
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 26
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.5
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3427.294768420729
+Total Basic System Income: 2054.7599999999998
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12813.2629120713
+Number of Finished Tasks: 37
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.97
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3808.1973194250945
+Total Basic System Income: 2331.6799999999994
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11709.804957158765
+Number of Finished Tasks: 40
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.34
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4075.6999705733842
+Total Basic System Income: 2411.1800000000007
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13961.77449703047
+Number of Finished Tasks: 43
+Number of Allocated Tasks: 8
+Number of Failure Tasks: 32
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.86
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3584.3991653097883
+Total Basic System Income: 2126.92
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9675.15377503181
+Number of Finished Tasks: 37
+Number of Allocated Tasks: 12
+Number of Failure Tasks: 31
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 19.71
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4090.25964919943
+Total Basic System Income: 2525.4100000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12179.193152224596
+Number of Finished Tasks: 43
+Number of Allocated Tasks: 7
+Number of Failure Tasks: 25
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.09
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4153.033863615127
+Total Basic System Income: 2517.5399999999995
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9434.70293766337
+Number of Finished Tasks: 48
+Number of Allocated Tasks: 7
+Number of Failure Tasks: 37
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 19.05
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3485.643750508257
+Total Basic System Income: 2086.82
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13188.980956986437
+Number of Finished Tasks: 35
+Number of Allocated Tasks: 7
+Number of Failure Tasks: 38
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.61
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3746.2311031008135
+Total Basic System Income: 2306.49
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9496.603144665758
+Number of Finished Tasks: 42
+Number of Allocated Tasks: 12
+Number of Failure Tasks: 22
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.44
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3623.0271304492235
+Total Basic System Income: 2192.02
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11374.294905510784
+Number of Finished Tasks: 37
+Number of Allocated Tasks: 12
+Number of Failure Tasks: 34
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.11
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3798.686218258296
+Total Basic System Income: 2301.26
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 9648.210020215934
+Number of Finished Tasks: 41
+Number of Allocated Tasks: 9
+Number of Failure Tasks: 35
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.34
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3677.169215762286
+Total Basic System Income: 2276.55
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12835.621130373198
+Number of Finished Tasks: 39
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 35
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.45
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4124.535040530046
+Total Basic System Income: 2508.3699999999994
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10514.848090243826
+Number of Finished Tasks: 44
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 31
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.62
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4201.032525048357
+Total Basic System Income: 2568.9000000000005
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12459.29272781543
+Number of Finished Tasks: 37
+Number of Allocated Tasks: 10
+Number of Failure Tasks: 38
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.68
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3652.65553863508
+Total Basic System Income: 2294.38
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12266.68492971317
+Number of Finished Tasks: 36
+Number of Allocated Tasks: 9
+Number of Failure Tasks: 39
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.27
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3374.261587485779
+Total Basic System Income: 2145.6800000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11587.397624770318
+Number of Finished Tasks: 34
+Number of Allocated Tasks: 6
+Number of Failure Tasks: 43
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.66
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3356.77836981058
+Total Basic System Income: 2127.49
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10489.148398559038
+Number of Finished Tasks: 36
+Number of Allocated Tasks: 14
+Number of Failure Tasks: 32
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.13
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3834.954213634426
+Total Basic System Income: 2181.29
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12970.300704523568
+Number of Finished Tasks: 39
+Number of Allocated Tasks: 9
+Number of Failure Tasks: 28
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.59
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 3983.0562361188204
+Total Basic System Income: 2203.36
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 16668.86165271454
+Number of Finished Tasks: 45
+Number of Allocated Tasks: 6
+Number of Failure Tasks: 23
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 22.74
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 25
+Maximum Task Arrive Rate: 4
+Minimum Task Arrive Rate: 4
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 4240.258747388419
+Total Basic System Income: 2514.65
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10849.2443711264
+Number of Finished Tasks: 46
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 33
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.81
+
+TimeStamp: 1316435514296
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 17094.332675575064
+Total Basic System Income: 10039.09
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 14566.745586492432
+Number of Finished Tasks: 163
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 34
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.24
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15030.680107155851
+Total Basic System Income: 8978.369999999995
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12136.588156024662
+Number of Finished Tasks: 156
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 41
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.17
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15578.503424157541
+Total Basic System Income: 8867.749999999998
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 15334.349599489728
+Number of Finished Tasks: 154
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 43
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 22.25
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15414.745613295601
+Total Basic System Income: 9023.930000000002
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12133.198653224099
+Number of Finished Tasks: 160
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.42
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16471.58891719125
+Total Basic System Income: 9362.350000000002
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 19592.871777073386
+Number of Finished Tasks: 162
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 35
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 24.17
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16977.82171365513
+Total Basic System Income: 9768.710000000001
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 14236.030673256315
+Number of Finished Tasks: 167
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 28
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.17
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15273.43161542603
+Total Basic System Income: 9063.150000000001
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12769.451905055646
+Number of Finished Tasks: 160
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 37
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.64
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 17192.11954025259
+Total Basic System Income: 10219.679999999997
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12362.547330623973
+Number of Finished Tasks: 170
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 27
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.51
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16483.31207415008
+Total Basic System Income: 9421.46
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11632.481074354911
+Number of Finished Tasks: 167
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 30
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.95
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16074.273122042576
+Total Basic System Income: 9608.730000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10868.895135888528
+Number of Finished Tasks: 160
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 19.53
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 17273.643284861635
+Total Basic System Income: 9984.320000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13678.057067333653
+Number of Finished Tasks: 171
+Number of Allocated Tasks: 2
+Number of Failure Tasks: 27
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.37
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16189.079231768863
+Total Basic System Income: 9299.409999999996
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12790.827728010387
+Number of Finished Tasks: 158
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 37
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.73
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16797.99136327366
+Total Basic System Income: 9563.279999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12902.133963451322
+Number of Finished Tasks: 168
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 27
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.64
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 14677.044655500944
+Total Basic System Income: 8709.799999999997
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13960.258983914302
+Number of Finished Tasks: 156
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 41
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.82
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16153.598376789043
+Total Basic System Income: 9501.309999999996
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12155.513527979578
+Number of Finished Tasks: 168
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 29
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.85
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16983.70325885724
+Total Basic System Income: 9733.039999999995
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 17261.256030267734
+Number of Finished Tasks: 165
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 32
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 22.32
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15296.088565695867
+Total Basic System Income: 8907.470000000001
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11053.856717463083
+Number of Finished Tasks: 166
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 29
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.14
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16006.965014868438
+Total Basic System Income: 9288.400000000001
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12780.945582357639
+Number of Finished Tasks: 165
+Number of Allocated Tasks: 2
+Number of Failure Tasks: 33
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.32
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15594.427561389315
+Total Basic System Income: 9324.539999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13164.38436352796
+Number of Finished Tasks: 158
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 38
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.24
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16083.672842897708
+Total Basic System Income: 9165.560000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13010.004984556923
+Number of Finished Tasks: 163
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 33
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.58
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15502.500940145677
+Total Basic System Income: 9039.779999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 14053.391609452392
+Number of Finished Tasks: 164
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 32
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.11
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16751.149414208125
+Total Basic System Income: 9832.660000000005
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12821.601742030052
+Number of Finished Tasks: 162
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 34
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.61
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16712.746864645287
+Total Basic System Income: 9745.960000000006
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13408.554669464742
+Number of Finished Tasks: 169
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 26
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.2
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 17140.35381449681
+Total Basic System Income: 9904.119999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13623.981355427244
+Number of Finished Tasks: 171
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 26
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.85
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16053.492831718238
+Total Basic System Income: 9514.12
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 11815.110787106343
+Number of Finished Tasks: 163
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 34
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.97
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 14936.090154254392
+Total Basic System Income: 8890.779999999999
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13157.119495095409
+Number of Finished Tasks: 160
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 36
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.86
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 16159.968094985266
+Total Basic System Income: 9534.3
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12949.510881799975
+Number of Finished Tasks: 165
+Number of Allocated Tasks: 5
+Number of Failure Tasks: 30
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 21.08
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15514.05907334073
+Total Basic System Income: 9417.299999999997
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 10233.589539805047
+Number of Finished Tasks: 159
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 37
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 19.53
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 14170.735019330721
+Total Basic System Income: 8428.810000000003
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 12368.809938147662
+Number of Finished Tasks: 158
+Number of Allocated Tasks: 3
+Number of Failure Tasks: 39
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.35
+
+Number of Resource Types: 10
+Maximum Deadline of Task: 10
+Maximum Extra Task Profit: 1.0
+Maximum Number of Task Resource: 100
+Minimum Deadline of Task: 5
+Minimum Number of Task Resource: 20
+Task Value Down: -10
+Task Value Up: 10
+Maximum Number of Agent Resource: 20
+Minimum Number of Agent Resource: 5
+Percentage of Task Profit for Transfer: 0.5
+Allocaiton Time: 200
+Maximum Task Arrive Rate: 1
+Minimum Task Arrive Rate: 1
+Maximum Distance to Build Relation in Cooperation Network: 0.2
+Number of Agent: 200
+Parameter for Communicaiton Network(0: Cooperation;1: None;>=2: Structured Network): 0
+Probability of Communication Network(0: Scale-free;1: Random;2: Small World): 0.0
+Dynamic Property: false
+
+Experiment Results: 
+Total System Income: 15001.600758966279
+Total Basic System Income: 8712.56
+Average Diffusion Depth: 1.0
+Average Diffusion Cost: 0.0
+Average Execution Cost: 13088.537979531762
+Number of Finished Tasks: 155
+Number of Allocated Tasks: 4
+Number of Failure Tasks: 41
+Average Degree of Communication Network: 0.0
+Average Degree of Cooperation Network: 20.7
+
