@@ -237,7 +237,7 @@ public class Allocation {
 		//addRandomCooperation();
 		
 		//Initial the communication structure
-		//CreateComStructure();
+		CreateComStructure();
 		
 		System.out.println("Communication Structure finished");
 		if(!Test.testComStructrue()){

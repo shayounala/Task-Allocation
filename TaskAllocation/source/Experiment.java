@@ -8,6 +8,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Display;
 
@@ -95,17 +96,33 @@ public class Experiment {
 		Agent.MinResource = 5;
 		Agent.Percent_Profit = 0.5;// .1+0.2*((number_Experiment-1)/30);
 		Agent.stragety = 100;
-		Agent.MaxFuture =true;
+		Agent.MaxFuture = true;
 		Agent.Cooperation = true;
 
 		Allocation.Max_TaskRate = 1;
 		Allocation.Min_TaskRate = 1;
 		Allocation.Allocation_Time = 200;
 		Allocation.Number_Agent = 200;
-		Allocation.MaxDistance = 0.2;
-		Allocation.para_ComStructure = 0;
+		Allocation.MaxDistance = 0.12;
+		Allocation.para_ComStructure = 200;
 		Allocation.probability_ComStructure = 0;
 		Allocation.dynamic = false;
+		
+		/*switch((currentNum_Experiment-1)/experiment_Number){
+		case 0:
+			Agent.MaxFuture = true;
+			Agent.Cooperation = true;
+			Allocation.MaxDistance = 0.15;
+			Allocation.para_ComStructure = 200;
+		case 1:
+		;
+		case 2:
+			;
+		case 3:
+			;
+		}*/
+		
+		
 		try {
 			results = new FileOutputStream("results.txt", true);
 			if(currentNum_Experiment==1){
@@ -150,8 +167,10 @@ public class Experiment {
 						}
 					}
 				}
-				
-				
+				event.gc.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
+				event.gc.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_BLACK));
+				event.gc.setFont(new Font(Display.getCurrent(), "number", 10, 14));
+				event.gc.drawString(("The current experiment number: "+String.valueOf(currentNum_Experiment)), 500, 500);
 				
 				
 			}

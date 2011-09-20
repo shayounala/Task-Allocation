@@ -47,7 +47,7 @@ public class DisplayUI {
 	public void open() {
 		Display display = Display.getDefault();
 		shell = new Shell();
-		shell.setSize(1000, 800);
+		shell.setSize(800, 600);
 		shell.setText("SWT Application");
 		GridLayout gl_shell = new GridLayout(1, false);
 		gl_shell.marginHeight = 0;

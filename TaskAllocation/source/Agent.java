@@ -167,6 +167,7 @@ public class Agent {
 				this.TransferedTasks.add(task_TobeAllocated);
 				this.transfer_Income.add(0.0);
 				this.unAllocateTask(task_TobeAllocated);
+				return;
 			}
 			double netProfit = Agent.Percent_Profit
 					* (task_TobeAllocated.better_Value - task_TobeAllocated.expected_Value);
@@ -182,11 +183,16 @@ public class Agent {
 									+ task_TobeAllocated.Task_Resources.Number_Resource[i]);
 				}
 			}
+			System.out.println(this.WaitedTasks
+					.indexOf(task_TobeAllocated));
 			double expectedProfit = task_TobeAllocated.expected_Value
 					* (this.WaitedTasks_Resource.get(this.WaitedTasks
 							.indexOf(task_TobeAllocated))).getValue()
 					/ (task_TobeAllocated.expected_Rate
 							* task_TobeAllocated.TotalNumber_Resource * task_TobeAllocated.Deadline);
+			if(Agent.MaxFuture){
+				expectedProfit = expectedProfit/task_TobeAllocated.Deadline;
+			}
 			if (netProfit >= expectedProfit) {
 				this.TransferedTasks.add(task_TobeAllocated);
 				this.transfer_Income.add(netProfit);
