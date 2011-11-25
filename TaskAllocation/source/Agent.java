@@ -375,42 +375,44 @@ public class Agent {
 
 		System.out.println(neededResource.getValue());
 		if (neededResource.getValue() != 0) {
-			/*for (int i = 0; i < Resource.Number_Types; i++) {
-				if (neededResource.Number_Resource[i] != 0) {
-					for (int j = 0; j < this.CoopNeighbours.size(); j++) {
-						Agent agent_Neighbor = this.CoopNeighbours.get(j);
-						if (agent_Neighbor.Agent_LeftResources.Number_Resource[i] != 0) {
-							int index_Task = agent_Neighbor.WaitedTasks
-									.indexOf(task_TobeAllocated);
-							if (index_Task == -1) {
-								agent_Neighbor.WaitedTasks
-										.add(task_TobeAllocated);
-								agent_Neighbor.WaitedAgents.add(this);
-								Resource new_Resource = Factory
-										.createBlankResource();
-								new_Resource.Number_Resource[i] = Math
-										.min(neededResource.Number_Resource[i],
-												agent_Neighbor
-														.Agent_LeftResources.Number_Resource[i]);
-								neededResource.Number_Resource[i] -= new_Resource.Number_Resource[i];
-								agent_Neighbor.Agent_LeftResources.Number_Resource[i] -= new_Resource.Number_Resource[i];
-								agent_Neighbor.WaitedTasks_Resource
-										.add(new_Resource);
-							} else {
-								int min_NumberofResource = Math
-										.min(neededResource.Number_Resource[i],
-												agent_Neighbor
-														.Agent_LeftResources.Number_Resource[i]);
-								neededResource.Number_Resource[i] -= min_NumberofResource;
-								agent_Neighbor.Agent_LeftResources.Number_Resource[i] -= min_NumberofResource;
-								agent_Neighbor.WaitedTasks_Resource
-										.get(index_Task).Number_Resource[i] += min_NumberofResource;
+			if(Agent.stragety == -1){
+				for (int i = 0; i < Resource.Number_Types; i++) {
+					if (neededResource.Number_Resource[i] != 0) {
+						for (int j = 0; j < this.CoopNeighbours.size(); j++) {
+							Agent agent_Neighbor = this.CoopNeighbours.get(j);
+							if (agent_Neighbor.Agent_LeftResources.Number_Resource[i] != 0) {
+								int index_Task = agent_Neighbor.WaitedTasks
+										.indexOf(task_TobeAllocated);
+								if (index_Task == -1) {
+									agent_Neighbor.WaitedTasks
+											.add(task_TobeAllocated);
+									agent_Neighbor.WaitedAgents.add(this);
+									Resource new_Resource = Factory
+											.createBlankResource();
+									new_Resource.Number_Resource[i] = Math
+											.min(neededResource.Number_Resource[i],
+													agent_Neighbor
+															.Agent_LeftResources.Number_Resource[i]);
+									neededResource.Number_Resource[i] -= new_Resource.Number_Resource[i];
+									agent_Neighbor.Agent_LeftResources.Number_Resource[i] -= new_Resource.Number_Resource[i];
+									agent_Neighbor.WaitedTasks_Resource
+											.add(new_Resource);
+								} else {
+									int min_NumberofResource = Math
+											.min(neededResource.Number_Resource[i],
+													agent_Neighbor
+															.Agent_LeftResources.Number_Resource[i]);
+									neededResource.Number_Resource[i] -= min_NumberofResource;
+									agent_Neighbor.Agent_LeftResources.Number_Resource[i] -= min_NumberofResource;
+									agent_Neighbor.WaitedTasks_Resource
+											.get(index_Task).Number_Resource[i] += min_NumberofResource;
+								}
 							}
 						}
 					}
-				}
 
-			}*/
+				}
+			}
 		} else {
 			success = true;
 		}

@@ -91,9 +91,15 @@ public class Allocation {
 				for(int j=0;j<tasks_Left.size();j++){
 					Task task_TobeAllocated = tasks_Left.get(j);
 					Agent agent_Current = task_TobeAllocated.AllocatedAgents.get(task_TobeAllocated.AllocatedAgents.size()-1);
-					for(int k=0;k<agent_Current.ComNeighbours.size();k++){
-						agent_Current.ComNeighbours.get(k).CalculateIncome(task_TobeAllocated);
+					
+					if(Allocation.Method == 1 && task_TobeAllocated.AllocatedAgents.size() >= 2){
+						
+					}else{
+						for(int k=0;k<agent_Current.ComNeighbours.size();k++){
+							agent_Current.ComNeighbours.get(k).CalculateIncome(task_TobeAllocated);
+						}
 					}
+					
 					if(task_TobeAllocated.better_Value==0 && agent_Current.ComNeighbours.size()!=0){
 						task_TobeAllocated.AllocatedAgents.add(agent_Current.ComNeighbours.get(0));
 					}else if(task_TobeAllocated.better_Value == 0){
