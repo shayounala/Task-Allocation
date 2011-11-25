@@ -16,6 +16,8 @@ public class Allocation {
 	public static double MaxDistance;
 	public static double averageComStructure;
 	public static double averageCoopStructure;
+	public static ArrayList<Double> expectedprofits;
+	public static ArrayList<Double> netprofits;
 	public static int Method;
 	
 	private static ArrayList<Agent> Agents;

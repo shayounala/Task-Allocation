@@ -190,6 +190,13 @@ public class Agent {
 							.indexOf(task_TobeAllocated))).getValue()
 					/ (task_TobeAllocated.expected_Rate
 							* task_TobeAllocated.TotalNumber_Resource * task_TobeAllocated.Deadline);
+			
+			{
+			Allocation.expectedprofits.add(expectedProfit);
+			Allocation.netprofits.add(netProfit);
+			}
+			
+			
 			if(Agent.MaxFuture){
 				expectedProfit = expectedProfit/task_TobeAllocated.Deadline;
 			}
