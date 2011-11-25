@@ -185,7 +185,7 @@ public class Agent {
 			}
 			System.out.println(this.WaitedTasks
 					.indexOf(task_TobeAllocated));
-			double expectedProfit = task_TobeAllocated.expected_Value
+			double expectedProfit = task_TobeAllocated.getexpected_Value()
 					* (this.WaitedTasks_Resource.get(this.WaitedTasks
 							.indexOf(task_TobeAllocated))).getValue()
 					/ (task_TobeAllocated.expected_Rate
@@ -216,7 +216,11 @@ public class Agent {
 			double netProfit = Agent.Percent_Profit
 					* (task_TobeAllocated.better_Value - task_TobeAllocated.expected_Value);
 			this.TransferedTasks.add(task_TobeAllocated);
-			this.transfer_Income.add(netProfit);
+			if(Agent.Cooperation){
+				this.transfer_Income.add(0.0);
+			}else{
+				this.transfer_Income.add(netProfit);
+			}
 			this.unAllocateTask(task_TobeAllocated);
 		}
 	}
@@ -371,7 +375,7 @@ public class Agent {
 
 		System.out.println(neededResource.getValue());
 		if (neededResource.getValue() != 0) {
-			for (int i = 0; i < Resource.Number_Types; i++) {
+			/*for (int i = 0; i < Resource.Number_Types; i++) {
 				if (neededResource.Number_Resource[i] != 0) {
 					for (int j = 0; j < this.CoopNeighbours.size(); j++) {
 						Agent agent_Neighbor = this.CoopNeighbours.get(j);
@@ -406,7 +410,7 @@ public class Agent {
 					}
 				}
 
-			}
+			}*/
 		} else {
 			success = true;
 		}

@@ -16,6 +16,7 @@ public class Allocation {
 	public static double MaxDistance;
 	public static double averageComStructure;
 	public static double averageCoopStructure;
+	public static int Method;
 	
 	private static ArrayList<Agent> Agents;
 	private Task [][] Tasks;
@@ -52,7 +53,7 @@ public class Allocation {
 			
 			for(int j=0;j<tasks_Allocated.size();j++){
 				Task allocatedtask = tasks_Allocated.get(j);
-				//if(i%4 == 1){
+				//if(i%5 == 1){
 					if(allocatedtask.left_ExecutionTime == 1){
 						allocatedtask.state = Task.FINISH;
 						tasks_Finish.add(allocatedtask);
@@ -154,6 +155,9 @@ public class Allocation {
 					}else{
 						agent_Allocation.releasetask(task_TobeAllocated);
 						agent_Allocation.unAllocateTask(task_TobeAllocated);
+						
+						
+						
 					}
 				}
 				
@@ -237,7 +241,9 @@ public class Allocation {
 		//addRandomCooperation();
 		
 		//Initial the communication structure
-		CreateComStructure();
+		if(Allocation.Method != 0){
+			CreateComStructure();
+		}
 		
 		System.out.println("Communication Structure finished");
 		if(!Test.testComStructrue()){
@@ -329,6 +335,7 @@ public class Allocation {
 		}
 		averageneighbors /= Agents.size();
 		System.out.println("The average number of the cooperation neighbors: "+averageneighbors);
+		System.exit(0);
 	}
 
 	private void CreateComStructure() {
@@ -342,10 +349,9 @@ public class Allocation {
 			return;
 		}
 		int randomorder [] = Functions.getRandomOrder(0,Number_Agent-1);
-		for(int i=0;i<para_ComStructure-1;i++){
-			for(int j=i+1;j<para_ComStructure;j++){
+		for(int i=0;i<para_ComStructure;i++){
+			for(int j=0;j<para_ComStructure;j++){
 				Agents.get(randomorder[i]).ComNeighbours.add(Agents.get(randomorder[j]));	
-				Agents.get(randomorder[j]).ComNeighbours.add(Agents.get(randomorder[i]));	
 			}
 		}
 		

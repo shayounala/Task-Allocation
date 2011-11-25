@@ -59,7 +59,7 @@ public class Experiment {
 			public void run() {
 				// TODO Auto-generated method stub
 				System.out.println("Start the Experiment");
-				experiment_Number = 30;
+				experiment_Number = 50;
 				currentNum_Experiment = 1;
 				for (int i = 0; i < experiment_Number; i++) {
 					System.out.println("Start the Experiment " + i);
@@ -94,34 +94,24 @@ public class Experiment {
 
 		Agent.MaxResource = 20;
 		Agent.MinResource = 5;
-		Agent.Percent_Profit = 0.5;// .1+0.2*((number_Experiment-1)/30);
+		int part = (currentNum_Experiment-1)/experiment_Number;
+		Agent.Percent_Profit = 0.8;//.1*part;// .1+0.2*((number_Experiment-1)/30);
 		Agent.stragety = 100;
 		Agent.MaxFuture = true;
-		Agent.Cooperation = true;
+		Agent.Cooperation = false;
 
-		Allocation.Max_TaskRate = 1;
-		Allocation.Min_TaskRate = 1;
-		Allocation.Allocation_Time = 200;
+		Allocation.Max_TaskRate = 5;
+		Allocation.Min_TaskRate = 5;
+		Allocation.Allocation_Time = 40;
 		Allocation.Number_Agent = 200;
-		Allocation.MaxDistance = 0.12;
-		Allocation.para_ComStructure = 200;
+		Allocation.MaxDistance = 0.15;
+		Allocation.para_ComStructure = 0;
 		Allocation.probability_ComStructure = 0;
 		Allocation.dynamic = false;
+		Allocation.Method = 0;
 		
-		/*switch((currentNum_Experiment-1)/experiment_Number){
-		case 0:
-			Agent.MaxFuture = true;
-			Agent.Cooperation = true;
-			Allocation.MaxDistance = 0.15;
-			Allocation.para_ComStructure = 200;
-		case 1:
-		;
-		case 2:
-			;
-		case 3:
-			;
-		}*/
 		
+		setAllocationMethod(Allocation.Method);
 		
 		try {
 			results = new FileOutputStream("results.txt", true);
@@ -137,6 +127,26 @@ public class Experiment {
 		}
 	}
 
+	private static void setAllocationMethod(int method) {
+		// TODO Auto-generated method stub
+		switch (method){
+		case 0:
+			
+			break;
+		case 1:
+			Allocation.para_ComStructure = 0;
+			break;
+		case 10:
+			Allocation.para_ComStructure = 0;
+			break;
+		case 100:
+			Allocation.para_ComStructure = Allocation.Number_Agent;
+			Allocation.probability_ComStructure = 0;
+			break;
+		}
+		
+	}
+
 	private static void showUI() {
 		// TODO Auto-generated method stub
 		DisplayUI.getCanvas().addPaintListener(new PaintListener() {
@@ -150,7 +160,7 @@ public class Experiment {
 				if(experiment!=null && experiment.getXLocation()!=null && experiment.getYLocation()!=null && Allocation.initiation_Finish){
 					points = new Point[experiment.getYLocation().length];
 					for(int i=0;i<experiment.getXLocation().length;i++){
-						points[i] = new Point((int)(experiment.getXLocation()[i]*DisplayUI.getCanvas().getBounds().width*0.6), (int)((experiment.getYLocation()[i]*DisplayUI.getCanvas().getBounds().height)*0.6));
+						points[i] = new Point((int)(experiment.getXLocation()[i]*DisplayUI.getCanvas().getBounds().width*0.8), (int)((experiment.getYLocation()[i]*DisplayUI.getCanvas().getBounds().height)*0.8));
 					}
 					for(int i=0;i<experiment.getXLocation().length;i++){
 						event.gc.setBackground(new Color(Display.getDefault(),experiment.getAgents().get(i).ComNeighbours.size()*5,0,0));
@@ -171,7 +181,7 @@ public class Experiment {
 				event.gc.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_BLACK));
 				event.gc.setFont(new Font(Display.getCurrent(), "number", 10, 14));
 				event.gc.drawString(("The current experiment number: "+String.valueOf(currentNum_Experiment)), 500, 500);
-				
+				event.gc.drawString(("The current profit: "+String.valueOf(Agent.Percent_Profit)), 450, 450);
 				
 			}
 		});

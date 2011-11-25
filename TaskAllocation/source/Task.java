@@ -181,17 +181,17 @@ public class Task {
 				if(!this.executionAgents.contains(allocated_Agent)){
 					this.executionAgents.add(allocated_Agent);
 				}
-				
+				calculateCosts(allocated_Agent);
 				//Rebuild the communication network
 				//Allocation.rebuildComStructure();
 			}
 		}
 		
-		calculateCosts();
+		
 	}
 
 
-	private void calculateCosts() {
+	private void calculateCosts(Agent allocated_Agent) {
 		// TODO Auto-generated method stub
 		this.duffusionDepth = this.AllocatedAgents.size();
 		
@@ -202,12 +202,31 @@ public class Task {
 		
 		this.allocationCost = 0;
 		for(int i=0;i<this.executionAgents.size();i++){
-			for(int j=0;j<this.executionAgents.size();j++){
-				if(i!=j){
-					this.allocationCost += Functions.getDistance(this.executionAgents.get(i).Mainkey,this.executionAgents.get(j).Mainkey);
+			
+			this.allocationCost += Functions.getDistance(this.executionAgents.get(i).Mainkey, allocated_Agent.Mainkey);
+			
+		}
+		
+	}
+
+
+	public double getexpected_Value() {
+		// TODO Auto-generated method stub
+		double netexpected_Value = getIncome(this.expected_Rate);
+		
+		for(int i=0;i<this.AllocatedAgents.size();i++){
+			Agent allocated_Agent = this.AllocatedAgents.get(i);
+			if(i!=this.AllocatedAgents.size()-1){
+				int index_task = allocated_Agent.TransferedTasks.indexOf(this);
+				if(allocated_Agent.transfer_Income.get(index_task)<0){
+					System.out.println("fasdfass");
+					System.exit(0);
 				}
+				netexpected_Value -= allocated_Agent.transfer_Income.get(index_task);
 			}
 		}
+		
+		return netexpected_Value;
 	}
 
 }
