@@ -50,7 +50,6 @@ public class Agent {
 	public static int MinResource;
 	public static int MaxResource;
 	public static double Percent_Profit;
-	public static boolean MaxFuture;
 	public static boolean Cooperation;
 
 	public Agent() {// Initialization
@@ -197,9 +196,6 @@ public class Agent {
 			}
 			
 			
-			if(Agent.MaxFuture){
-				expectedProfit = expectedProfit/task_TobeAllocated.Deadline;
-			}
 			if (netProfit >= expectedProfit) {
 				this.TransferedTasks.add(task_TobeAllocated);
 				this.transfer_Income.add(netProfit);
@@ -382,7 +378,7 @@ public class Agent {
 
 		System.out.println(neededResource.getValue());
 		if (neededResource.getValue() != 0) {
-			if(Agent.stragety == -1){
+			if(Agent.stragety == 101){
 				for (int i = 0; i < Resource.Number_Types; i++) {
 					if (neededResource.Number_Resource[i] != 0) {
 						for (int j = 0; j < this.CoopNeighbours.size(); j++) {

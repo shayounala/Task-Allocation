@@ -44,6 +44,9 @@ public class Allocation {
 		tasks_Finish = new ArrayList<Task>();
 		tasks_Fail = new ArrayList<Task>();
 		tasks_Failure = new ArrayList<Task>();
+		
+		expectedprofits = new ArrayList<Double>();
+		netprofits = new ArrayList<Double>();
 	}
 
 	public void RunAllocation() {
@@ -94,7 +97,7 @@ public class Allocation {
 					Task task_TobeAllocated = tasks_Left.get(j);
 					Agent agent_Current = task_TobeAllocated.AllocatedAgents.get(task_TobeAllocated.AllocatedAgents.size()-1);
 					
-					if(Allocation.Method == 1 && task_TobeAllocated.AllocatedAgents.size() >= 2){
+					if(Allocation.Method/10 == 1 && task_TobeAllocated.AllocatedAgents.size() >= 2){
 						
 					}else{
 						for(int k=0;k<agent_Current.ComNeighbours.size();k++){
@@ -249,7 +252,7 @@ public class Allocation {
 		//addRandomCooperation();
 		
 		//Initial the communication structure
-		if(Allocation.Method != 0){
+		if(Allocation.Method != 1){
 			CreateComStructure();
 		}
 		
@@ -343,7 +346,7 @@ public class Allocation {
 		}
 		averageneighbors /= Agents.size();
 		System.out.println("The average number of the cooperation neighbors: "+averageneighbors);
-		System.exit(0);
+		//System.exit(0);
 	}
 
 	private void CreateComStructure() {
@@ -359,7 +362,9 @@ public class Allocation {
 		int randomorder [] = Functions.getRandomOrder(0,Number_Agent-1);
 		for(int i=0;i<para_ComStructure;i++){
 			for(int j=0;j<para_ComStructure;j++){
-				Agents.get(randomorder[i]).ComNeighbours.add(Agents.get(randomorder[j]));	
+				if(i != j){
+					Agents.get(randomorder[i]).ComNeighbours.add(Agents.get(randomorder[j]));	
+				}
 			}
 		}
 		
@@ -454,6 +459,15 @@ public class Allocation {
 			e.printStackTrace();
 		}
 		
+		
+		//output the settings
+		try {
+			resultoutput.writeBytes(Allocation.Method+"	"+Agent.Cooperation+"	"+Agent.Percent_Profit+"	"+Allocation.Max_TaskRate+"	");
+		} catch (IOException e4) {
+			// TODO Auto-generated catch block
+			e4.printStackTrace();
+		}
+		
 		//output the total profit
 		try {
 			resultoutput.writeBytes(system_Income+"	"+total_basic+"	");
@@ -488,10 +502,33 @@ public class Allocation {
 			e.printStackTrace();
 		}
 		
+		//output the average expected and better profit
+		double averageexpectedprofit = 0, averagebetterprofit = 0;
+		for(int i=0;i<expectedprofits.size();i++){
+			averageexpectedprofit += expectedprofits.get(i);
+			averagebetterprofit += netprofits.get(i);
+		}
+
+		averageexpectedprofit = averageexpectedprofit/expectedprofits.size();
+		averagebetterprofit = averagebetterprofit/netprofits.size();
+		
+		try {
+			resultoutput.writeBytes(averageexpectedprofit+"	"+averagebetterprofit+"	");
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
 		//output the network statics
 		try {
 			resultoutput.writeBytes(Allocation.averageComStructure+"	"+Allocation.averageCoopStructure+"	");
 			resultoutput.writeBytes(System.getProperty("line.separator"));
+			if(Experiment.currentNum_Experiment%50 == 0){
+				resultoutput.writeBytes(System.getProperty("line.separator"));
+				resultoutput.writeBytes(System.getProperty("line.separator"));
+				resultoutput.writeBytes(System.getProperty("line.separator"));
+			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

@@ -66,7 +66,7 @@ public class Task {
 			}
 		}
 		
-		if(Agent.MaxFuture){
+		if(!Agent.Cooperation){
 			double maxrate_Resources = Math.max(Math.sqrt((1+Math.pow(rate_Resources, -1))/3),1.0);
 			if(rate_Resources>maxrate_Resources && maxrate_Resources>1){
 				rate_Resources = maxrate_Resources;
@@ -214,16 +214,21 @@ public class Task {
 		// TODO Auto-generated method stub
 		double netexpected_Value = getIncome(this.expected_Rate);
 		
-		for(int i=0;i<this.AllocatedAgents.size();i++){
+		if(this.AllocatedAgents.size()<3){
+			return netexpected_Value;
+		}
+		
+		for(int i=0;i<this.AllocatedAgents.size()-2;i++){
 			Agent allocated_Agent = this.AllocatedAgents.get(i);
-			if(i!=this.AllocatedAgents.size()-1){
-				int index_task = allocated_Agent.TransferedTasks.indexOf(this);
-				if(allocated_Agent.transfer_Income.get(index_task)<0){
-					System.out.println("fasdfass");
-					System.exit(0);
-				}
-				netexpected_Value -= allocated_Agent.transfer_Income.get(index_task);
+			int index_task = allocated_Agent.TransferedTasks.indexOf(this);
+			if(index_task == -1){
+				System.out.println("i: "+i+" AllocatedAgents.size: "+AllocatedAgents.size());
 			}
+			if(allocated_Agent.transfer_Income.get(index_task)<0){
+				System.out.println("fasdfass");
+				System.exit(0);
+			}
+			netexpected_Value -= allocated_Agent.transfer_Income.get(index_task);
 		}
 		
 		return netexpected_Value;
