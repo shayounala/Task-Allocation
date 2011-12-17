@@ -34,6 +34,7 @@ public class Factory {
 		NewAgent.Agent_Resources = Factory.createAgent_Resources(NewAgent);
 		NewAgent.setAgent_LeftResources(NewAgent.Agent_Resources.clone());
 		NewAgent.Income = 0;
+		NewAgent.ability = 1;
 		NewAgent.setBooked_LeftResource(false);
 		return NewAgent;
 	}

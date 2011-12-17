@@ -26,13 +26,29 @@ public class Experiment {
 
 		public void run() {
 			// TODO Auto-generated method stub
-			if (DisplayUI.getShell().isDisposed()) {
-				//System.exit(0);
+			if(experiment!=null && Allocation.initiation_Finish){
+				
+				if (DisplayUI.getCanvas() != null && !DisplayUI.getCanvas().isDisposed()) {
+					
+					DisplayUI.getCanvas().redraw();
+					
+				}
+				if (DisplayUI.getCooperationcanvas() != null && !DisplayUI.getCooperationcanvas().isDisposed()) {
+					
+					DisplayUI.getCooperationcanvas().redraw();
+					
+				}
+				if (DisplayUI.getTransfercanvas() != null && !DisplayUI.getTransfercanvas().isDisposed()) {
+
+					DisplayUI.getTransfercanvas().redraw();
+					
+				}
+				
 			}
-			if (DisplayUI.getCanvas() != null && experiment!=null && Allocation.initiation_Finish) {
-				DisplayUI.getCanvas().redraw();
-			}
+			
 			Display.getCurrent().timerExec(100, this);
+			//System.out.println("Finish1");
+			//System.exit(0);
 		}
 
 	};
@@ -43,14 +59,16 @@ public class Experiment {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Start UI Initiation");
-		System.out.println("Finish UI Initiation");
+
 		//Test.main(new String [1]);
 		showUI();
+		showresultUI();
 		Display.getCurrent().timerExec(100, refresh);
 		Allocation_experiment();
-
+		
+		
 	}
+
 
 	private static void Allocation_experiment() {
 		// TODO Auto-generated method stub
@@ -59,7 +77,7 @@ public class Experiment {
 			public void run() {
 				// TODO Auto-generated method stub
 				System.out.println("Start the Experiment");
-				experiment_Number = 600;
+				experiment_Number = 1;
 				currentNum_Experiment = 1;
 				for (int i = 0; i < experiment_Number; i++) {
 					System.out.println("Start the Experiment " + i);
@@ -68,7 +86,8 @@ public class Experiment {
 					experiment.SaveResults();
 					currentNum_Experiment += 1;
 				}
-				System.exit(0);
+				System.out.println("Finish");
+				//System.exit(0);
 			}
 
 		});
@@ -96,8 +115,8 @@ public class Experiment {
 		Agent.MinResource = 5;
 		int part = (currentNum_Experiment-1)/50;
 		Agent.Percent_Profit = 0.4+0.2*part;
-		Agent.stragety = 101;
-		Agent.Cooperation = false;
+		Agent.stragetyfordiffusion = Agent.NOPE;
+		Agent.Cooperation = true;
 
 		Allocation.Max_TaskRate = 5;
 		Allocation.Min_TaskRate = 5;
@@ -107,13 +126,15 @@ public class Experiment {
 		Allocation.para_ComStructure = 0;
 		Allocation.probability_ComStructure = 0;
 		Allocation.dynamic = false;
-		Allocation.Method = 114;
+		Allocation.Method = 111;
+		Allocation.agentcooperationmatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
+		Allocation.agenttransfermatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
 		
 		
-		//setAllocationMethod(Allocation.Method);
-		setMaxDistance();
+		setAllocationMethod(Allocation.Method);
+		//setMaxDistance();
 		//setTaskRate();
-		setMethod();
+		//setMethod();
 		try {
 			results = new FileOutputStream("results.txt", true);
 			if(currentNum_Experiment==1){
@@ -128,6 +149,7 @@ public class Experiment {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void setMethod() {
 		// TODO Auto-generated method stub
 		int number = (currentNum_Experiment-1)/300;
@@ -160,6 +182,7 @@ public class Experiment {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void setMaxDistance() {
 		// TODO Auto-generated method stub
 		int number = (currentNum_Experiment-1)%300;
@@ -186,6 +209,7 @@ public class Experiment {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void setTaskRate() {
 		// TODO Auto-generated method stub
 		if(currentNum_Experiment>2400){
@@ -265,9 +289,9 @@ public class Experiment {
 						points[i] = new Point((int)(experiment.getXLocation()[i]*DisplayUI.getCanvas().getBounds().width*0.8), (int)((experiment.getYLocation()[i]*DisplayUI.getCanvas().getBounds().height)*0.8));
 					}
 					for(int i=0;i<experiment.getXLocation().length;i++){
-						event.gc.setBackground(new Color(Display.getDefault(),experiment.getAgents().get(i).ComNeighbours.size()*5,0,0));
+						event.gc.setBackground(new Color(Display.getDefault(),experiment.getAgents().get(i).ComNeighbours.size(),0,0));
 						event.gc.setBackground(Display.getDefault().getSystemColor(experiment.getAgents().get(i).ComNeighbours.size()%6+1));
-						event.gc.fillOval(points[i].x,points[i].y, 10, 10);
+						event.gc.fillOval(points[i].x-5,points[i].y-5, 10, 10);
 					}
 					
 					
@@ -275,6 +299,7 @@ public class Experiment {
 						for(int j=0;j<experiment.getAgents().get(i).ComNeighbours.size();j++){
 							int neighbour_Mainkey = experiment.getAgents().get(i).ComNeighbours.get(j).Mainkey;
 							event.gc.setForeground(new Color(Display.getDefault(),35,235,185));
+							event.gc.setLineWidth(1);
 							event.gc.drawLine(points[i].x,points[i].y,points[neighbour_Mainkey].x,points[neighbour_Mainkey].y);
 						}
 					}
@@ -289,4 +314,65 @@ public class Experiment {
 		});
 	}
 
+	
+	
+	private static void showresultUI() {
+		// TODO Auto-generated method stub
+		DisplayUI.getCooperationcanvas().addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent event) {
+				drawresults(event, Allocation.agentcooperationmatrix);
+			}
+		});
+		
+		
+		DisplayUI.getTransfercanvas().addPaintListener(new PaintListener() {
+			public void paintControl(PaintEvent event) {
+				drawresults(event, Allocation.agenttransfermatrix);
+			}
+		});
+		
+	}
+
+
+	protected static void drawresults(PaintEvent event, int[][] agentmatrix) {
+		// TODO Auto-generated method stub
+		if(currentNum_Experiment == 1){
+			return;
+		}
+		Point points [];
+		event.gc.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
+		event.gc.fillRectangle(DisplayUI.getCanvas().getBounds());
+		
+		
+		event.gc.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_BLACK));
+		if(experiment!=null && experiment.getXLocation()!=null && experiment.getYLocation()!=null && Allocation.initiation_Finish){
+			points = new Point[experiment.getYLocation().length];
+			for(int i=0;i<experiment.getXLocation().length;i++){
+				points[i] = new Point((int)(experiment.getXLocation()[i]*DisplayUI.getCanvas().getBounds().width*0.8), (int)((experiment.getYLocation()[i]*DisplayUI.getCanvas().getBounds().height)*0.8));
+			}
+			for(int i=0;i<experiment.getXLocation().length;i++){
+				event.gc.setBackground(new Color(Display.getDefault(),experiment.getAgents().get(i).ComNeighbours.size(),0,0));
+				event.gc.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_BLUE));
+				event.gc.fillOval(points[i].x-5,points[i].y-5, 10, 10);
+			}
+			
+			
+			for(int i=0;i<experiment.getXLocation().length;i++){
+				for(int j=0;j<agentmatrix[i].length;j++){
+					
+					if(agentmatrix[i][j] > 0){
+						event.gc.setForeground(new Color(Display.getDefault(),55,0,10*agentmatrix[i][j]));
+						event.gc.setLineWidth(2);
+						event.gc.drawLine(points[i].x,points[i].y,points[j].x,points[j].y);
+					}
+					
+				}
+			}
+		}
+		event.gc.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
+		event.gc.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_BLACK));
+		event.gc.setFont(new Font(Display.getCurrent(), "number", 10, 14));
+		event.gc.drawString(("The results of experiment number: "+String.valueOf(currentNum_Experiment-1)), 500, 500);
+
+	}
 }

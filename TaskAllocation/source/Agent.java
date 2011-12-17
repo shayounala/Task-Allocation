@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Agent {
 
+	public final static int NOPE = 0, CON = 1, THRES = 2;
 	public Resource Agent_Resources;// The resource that the agent owns.
 	private Resource Agent_LeftResources;
 	private boolean booked_LeftResource;
@@ -16,14 +17,15 @@ public class Agent {
 		this.booked_LeftResource = booked_LeftResource;
 	}
 
-	public static int stragety;
+	public static int MinResource;
+	public static int MaxResource;
+	public static double Percent_Profit;
+	public static boolean Cooperation;
+	public static int stragetyfordiffusion;
 
 	public Resource getAgent_LeftResources() {
 		if (booked_LeftResource) {
-			int random = Functions.getRandom(0, 99);
-			if (random > stragety) {
-				return Factory.createBlankResource();
-			}
+			//int random = Functions.getRandom(0, 99);
 		} 
 		return Agent_LeftResources;
 	}
@@ -46,11 +48,9 @@ public class Agent {
 	public ArrayList<Agent> ComNeighbours;
 	public ArrayList<Agent> CoopNeighbours;
 	public int TotalNumber_Resource;
+	public double ability;
 
-	public static int MinResource;
-	public static int MaxResource;
-	public static double Percent_Profit;
-	public static boolean Cooperation;
+
 
 	public Agent() {// Initialization
 		AcceptedTasks = new ArrayList<Task>();
@@ -378,7 +378,7 @@ public class Agent {
 
 		System.out.println(neededResource.getValue());
 		if (neededResource.getValue() != 0) {
-			if(Agent.stragety == 101){
+			if(Agent.stragetyfordiffusion == Agent.CON){
 				for (int i = 0; i < Resource.Number_Types; i++) {
 					if (neededResource.Number_Resource[i] != 0) {
 						for (int j = 0; j < this.CoopNeighbours.size(); j++) {
@@ -554,5 +554,10 @@ public class Agent {
 		} else {
 			this.ComNeighbours.add(MaxDiffusionRate);
 		}
+	}
+
+	public void reviseAbility(double p, double exp, int sign) {
+		// TODO Auto-generated method stub
+		ability = ability*(1+sign*Math.pow(1-p, exp));
 	}
 }

@@ -19,6 +19,8 @@ public class Allocation {
 	public static ArrayList<Double> expectedprofits;
 	public static ArrayList<Double> netprofits;
 	public static int Method;
+	public static int [][] agentcooperationmatrix;
+	public static int [][] agenttransfermatrix;
 	
 	private static ArrayList<Agent> Agents;
 	private Task [][] Tasks;
@@ -61,6 +63,7 @@ public class Allocation {
 				//if(i%5 == 1){
 					if(allocatedtask.left_ExecutionTime == 1){
 						allocatedtask.state = Task.FINISH;
+						allocatedtask.updateAbility();
 						tasks_Finish.add(allocatedtask);
 						allocatedtask.finish();
 						tasks_Allocated.remove(allocatedtask);
@@ -136,12 +139,14 @@ public class Allocation {
 						if(agent_Allocation.isAllocationSucceed(task_TobeAllocated)){
 							task_TobeAllocated.left_ExecutionTime = (int)Math.ceil(task_TobeAllocated.Deadline/task_TobeAllocated.expected_Rate);
 							task_TobeAllocated.state = Task.ALLOOCATED;
+							task_TobeAllocated.updateAbility();
 							tasks_Allocated.add(task_TobeAllocated);
 							tasks_Left.remove(task_TobeAllocated);
 							j--;
 						}else{
 							System.out.println("The task is failed!");
 							task_TobeAllocated.state = Task.FAIL;
+							task_TobeAllocated.updateAbility();
 							tasks_Fail.add(task_TobeAllocated);
 							tasks_Left.remove(task_TobeAllocated);
 							if(dynamic){
@@ -157,6 +162,7 @@ public class Allocation {
 							System.out.println(task_TobeAllocated.AllocatedAgents.get(task_TobeAllocated.AllocatedAgents.size()-1).ComNeighbours.get(k).Mainkey);
 						}
 						task_TobeAllocated.state = Task.FAILURE;
+						task_TobeAllocated.updateAbility();
 						tasks_Failure.add(task_TobeAllocated);
 						tasks_Left.remove(task_TobeAllocated);
 						if(dynamic){
@@ -164,6 +170,8 @@ public class Allocation {
 						}
 						j--;
 					}else{
+						task_TobeAllocated.state = Task.TRANSFER;
+						task_TobeAllocated.updateAbility();
 						agent_Allocation.releasetask(task_TobeAllocated);
 						agent_Allocation.unAllocateTask(task_TobeAllocated);
 						
@@ -297,6 +305,7 @@ public class Allocation {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void addRandomCooperation() {
 		// TODO Auto-generated method stub
 		for(int i=0;i<Agents.size();i++){

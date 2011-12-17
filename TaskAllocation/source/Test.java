@@ -108,6 +108,7 @@ public class Test {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private static void plotdots() {
 		// TODO Auto-generated method stub
 		int value = 100;

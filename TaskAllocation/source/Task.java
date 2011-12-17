@@ -21,6 +21,10 @@ public class Task {
 	public final static int FAIL =2;
 	public final static int FINISH =3;
 	public final static int FAILURE = 4;
+	public final static int TRANSFER = 5;
+	public final static double large = 1;
+	public final static double medium = 2;
+	public final static double small = 3;
 	
 	
 	public Resource Task_Resources;//The resource that this task needs to be completed.
@@ -198,13 +202,16 @@ public class Task {
 		this.duffusionCost = 0;
 		for(int i=0;i<this.AllocatedAgents.size();i++){
 			this.duffusionCost += this.AllocatedAgents.get(i).ComNeighbours.size();
+			if(i != this.AllocatedAgents.size()-1){
+				Allocation.agenttransfermatrix[AllocatedAgents.get(i).Mainkey][AllocatedAgents.get(i+1).Mainkey] += 1;
+			}
 		}
 		
 		this.allocationCost = 0;
 		for(int i=0;i<this.executionAgents.size();i++){
 			
 			this.allocationCost += Functions.getDistance(this.executionAgents.get(i).Mainkey, allocated_Agent.Mainkey);
-			
+			Allocation.agentcooperationmatrix[allocated_Agent.Mainkey][this.executionAgents.get(i).Mainkey] += 1;
 		}
 		
 	}
@@ -232,6 +239,50 @@ public class Task {
 		}
 		
 		return netexpected_Value;
+	}
+
+
+	public void updateAbility() {
+		// TODO Auto-generated method stub
+		double percent = 0;
+		Agent agent;
+		switch(this.state){
+		case Task.FAIL:
+			agent = this.AllocatedAgents.get(this.AllocatedAgents.size()-1);
+			agent.reviseAbility(percent, Task.medium, -1);
+			for(int i=0;i<agent.CoopNeighbours.size();i++){
+				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.small, -1);
+			}
+			break;
+		case Task.FAILURE:
+			agent = this.AllocatedAgents.get(this.AllocatedAgents.size()-1);
+			agent.reviseAbility(percent, Task.small, -1);
+			for(int i=0;i<agent.CoopNeighbours.size();i++){
+				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.small, -1);
+			}
+			break;
+		case Task.ALLOOCATED:
+			agent = this.AllocatedAgents.get(this.AllocatedAgents.size()-1);
+			agent.reviseAbility(percent, Task.large, -1);
+			for(int i=0;i<agent.CoopNeighbours.size();i++){
+				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.medium, -1);
+			}
+			break;
+		case Task.TRANSFER:
+			this.AllocatedAgents.get(this.AllocatedAgents.size()-1).reviseAbility(percent, Task.small, 1);
+			this.AllocatedAgents.get(this.AllocatedAgents.size()-2).reviseAbility(percent, Task.small, 1);
+			break;
+		case Task.FINISH:
+			agent = this.AllocatedAgents.get(this.AllocatedAgents.size()-1);
+			agent.reviseAbility(percent, Task.large, 1);
+			for(int i=0;i<agent.CoopNeighbours.size();i++){
+				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.medium, 1);
+			}
+			break;
+			default :
+				System.exit(0);
+				
+		}
 	}
 
 }
