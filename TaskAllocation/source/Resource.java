@@ -28,7 +28,9 @@ public class Resource implements Cloneable {
 		// TODO 自动生成方法存根
 		for (int i = 0; i < Number_Resource.length; i++) {
 			ResourceValue += Number_Resource[i];
+			//System.out.println("Number_Resource "+i+": "+Number_Resource[i]);
 		}
+		System.out.println(ResourceValue);
 
 		return ResourceValue;
 	}

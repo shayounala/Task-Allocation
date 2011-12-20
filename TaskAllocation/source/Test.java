@@ -4,6 +4,7 @@ import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 
 public class Test {
 
@@ -13,6 +14,15 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		{// Test the method in Random
+			Random random = new Random();
+			for(int i=0;i<100;i++){
+				System.out.println(random.nextDouble());
+			}
+			
+		}
+		
+		
 		/*
 		 * plot the relationship between the profit and execution time
 		 */
@@ -107,6 +117,9 @@ public class Test {
 			// System.out.println(testallocation.getXLocation().toString()+" : "+testallocation.getXLocation()[i]+"   "+testallocation.getYLocation().toString()+" : "+testallocation.getYLocation()[i]);
 			// }
 		}
+		
+		
+		
 
 	}
 

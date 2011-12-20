@@ -1,6 +1,7 @@
 package source;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
  * The class defines the basic agent in the task allocation.
@@ -148,80 +149,125 @@ public class Agent {
 
 	public void Allocation_MaxValue(Task task_TobeAllocated) {
 		// TODO Auto-generated method stub
-		if (task_TobeAllocated.better_Value == 0
-				&& task_TobeAllocated.expected_Value == 0) {
-			task_TobeAllocated.flag = false;
-			task_TobeAllocated.AllocatedAgents
-					.remove(task_TobeAllocated.AllocatedAgents.size() - 1);
-		}
 		System.out.println("better value:" + task_TobeAllocated.better_Value
 				+ "expected value:" + task_TobeAllocated.expected_Value);
-		// System.out.println(task_TobeAllocated.AllocatedAgents.size()+""+task_TobeAllocated.flag+""+task_TobeAllocated.expected_Value+""+task_TobeAllocated.better_Value);
-		if (task_TobeAllocated.better_Value > task_TobeAllocated.expected_Value
-				&& task_TobeAllocated.expected_Value != 0) {
-			if (Agent.Cooperation) {
-				this.TransferedTasks.add(task_TobeAllocated);
-				this.transfer_Income.add(0.0);
-				this.unAllocateTask(task_TobeAllocated);
-				return;
-			}
-			double netProfit = Agent.Percent_Profit
-					* (task_TobeAllocated.better_Value - task_TobeAllocated.expected_Value);
-			if (this.WaitedTasks.indexOf(task_TobeAllocated) == -1) {
-				System.out.println("Agent" + this.Mainkey);
-				for (int i = 0; i < Resource.Number_Types; i++) {
-					System.out.println("Agent Type " + i + " "
-							+ this.Agent_LeftResources.Number_Resource[i]);
-					System.out
-							.println("Task Type "
-									+ i
-									+ " "
-									+ task_TobeAllocated.Task_Resources.Number_Resource[i]);
+		
+		Agent transferredagent = task_TobeAllocated.AllocatedAgents.get(task_TobeAllocated.AllocatedAgents.size()-1);
+		
+		if(task_TobeAllocated.expected_Value == 0){
+			if(task_TobeAllocated.better_Value == 0){
+				if(Agent.stragetyfordiffusion == Agent.THRES && this.ComNeighbours.indexOf(transferredagent)!= -1  && getstragety(this, transferredagent, 0.0, 0.0)){
+					transfertask(this, task_TobeAllocated, 0.0);
+				}else{
+					failtask(this, task_TobeAllocated);
 				}
+			}else{
+				double netProfit = Agent.Percent_Profit*(task_TobeAllocated.better_Value-task_TobeAllocated.value);
+				transfertask(this, task_TobeAllocated, netProfit);
 			}
-			System.out.println(this.WaitedTasks.indexOf(task_TobeAllocated));
-			double expectedProfit = task_TobeAllocated.getexpected_Value()
-					* (this.WaitedTasks_Resource.get(this.WaitedTasks
-							.indexOf(task_TobeAllocated))).getValue()
-					/ (task_TobeAllocated.expected_Rate
-							* task_TobeAllocated.TotalNumber_Resource * task_TobeAllocated.Deadline);
-
-			{
-				Allocation.expectedprofits.add(expectedProfit);
-				Allocation.netprofits.add(netProfit);
-			}
-
-			if (netProfit >= expectedProfit) {
-				this.TransferedTasks.add(task_TobeAllocated);
-				this.transfer_Income.add(netProfit);
-				this.unAllocateTask(task_TobeAllocated);
-			} else {
-				this.AcceptedTasks.add(task_TobeAllocated);
-				task_TobeAllocated.AllocatedAgents.get(
-						task_TobeAllocated.AllocatedAgents.size() - 1)
-						.unAllocateTask(task_TobeAllocated);
-				task_TobeAllocated.AllocatedAgents
-						.remove(task_TobeAllocated.AllocatedAgents.size() - 1);
-			}
-		} else if (task_TobeAllocated.expected_Value != 0) {
-			this.AcceptedTasks.add(task_TobeAllocated);
-			task_TobeAllocated.AllocatedAgents.get(
-					task_TobeAllocated.AllocatedAgents.size() - 1)
-					.unAllocateTask(task_TobeAllocated);
-			task_TobeAllocated.AllocatedAgents
-					.remove(task_TobeAllocated.AllocatedAgents.size() - 1);
-		} else if (task_TobeAllocated.better_Value != 0) {
-			double netProfit = Agent.Percent_Profit
+		}else{
+			if(task_TobeAllocated.better_Value == 0){
+				accepttask(this, task_TobeAllocated);
+			}else{
+				if(Agent.Cooperation){
+					if(task_TobeAllocated.better_Value > task_TobeAllocated.expected_Value){
+						if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, task_TobeAllocated.better_Value, task_TobeAllocated.expected_Value)){
+							accepttask(this, task_TobeAllocated);
+						}else{
+							transfertask(this, task_TobeAllocated, 0.0);
+						}
+					}else{
+						accepttask(this, task_TobeAllocated);
+					}
+				}else{
+					double netProfit = Agent.Percent_Profit
 					* (task_TobeAllocated.better_Value - task_TobeAllocated.expected_Value);
-			this.TransferedTasks.add(task_TobeAllocated);
-			if (Agent.Cooperation) {
-				this.transfer_Income.add(0.0);
-			} else {
-				this.transfer_Income.add(netProfit);
+				
+					double expectedProfit = task_TobeAllocated.getexpected_Value()
+						* (this.WaitedTasks_Resource.get(this.WaitedTasks
+								.indexOf(task_TobeAllocated))).getValue()
+						/ (task_TobeAllocated.expected_Rate
+								* task_TobeAllocated.TotalNumber_Resource * task_TobeAllocated.Deadline);
+
+					{
+						Allocation.expectedprofits.add(expectedProfit);
+						Allocation.netprofits.add(netProfit);
+					}
+
+					if (netProfit >= expectedProfit && netProfit>0) {
+						//if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, netProfit, expectedProfit)){
+							//accepttask(this, task_TobeAllocated);
+						//}else
+						{
+							transfertask(this, task_TobeAllocated, netProfit);
+						}
+					} else {
+						accepttask(this, task_TobeAllocated);
+					}
+				
+				}
+				
 			}
-			this.unAllocateTask(task_TobeAllocated);
 		}
+
 	}
+
+	private boolean getstragety(Agent agent, Agent transferredagent, double i, double j) {
+		// TODO Auto-generated method stub
+		double temp = 0.0;
+		if(j != 0){
+			temp = (i-j)/j;
+		}else{
+			temp = -2;
+		}
+		
+		if(temp>1){
+			temp = 1;
+		}else if(temp<-1){
+			temp = -1;
+		}
+		double threshold = temp+agent.ability-transferredagent.ability;
+		
+		Random random = new Random();
+		double randomdouble = random.nextDouble()*2-1;
+		
+		if(randomdouble>=threshold){
+			Allocation.strategies ++;
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+
+	private void accepttask(Agent agent, Task task_TobeAllocated) {
+		// TODO Auto-generated method stub
+		Agent transferredagent = task_TobeAllocated.AllocatedAgents.get(task_TobeAllocated.AllocatedAgents.size()-1);
+		
+		this.AcceptedTasks.add(task_TobeAllocated);
+		transferredagent.unAllocateTask(task_TobeAllocated);
+		task_TobeAllocated.AllocatedAgents
+				.remove(task_TobeAllocated.AllocatedAgents.size() - 1);
+		
+	}
+
+	private void transfertask(Agent agent, Task task_TobeAllocated, double netProfit) {
+		// TODO Auto-generated method stub
+		
+		this.TransferedTasks.add(task_TobeAllocated);
+		this.transfer_Income.add(netProfit);
+		this.unAllocateTask(task_TobeAllocated);
+	}
+
+	private void failtask(Agent agent, Task task_TobeAllocated) {
+		// TODO Auto-generated method stub
+			
+		task_TobeAllocated.flag = false;
+		task_TobeAllocated.AllocatedAgents
+					.remove(task_TobeAllocated.AllocatedAgents.size() - 1);
+	
+	}
+
 
 	public void unAllocateTask(Task task_TobeAllocated) {
 		// TODO Auto-generated method stub
@@ -372,7 +418,7 @@ public class Agent {
 
 		System.out.println(neededResource.getValue());
 		if (neededResource.getValue() != 0) {
-			if (Agent.stragetyfordiffusion == Agent.CON) {
+			if (Agent.stragetyfordiffusion == Agent.CON || Agent.stragetyfordiffusion == Agent.THRES) {
 				for (int i = 0; i < Resource.Number_Types; i++) {
 					if (neededResource.Number_Resource[i] != 0) {
 						for (int j = 0; j < this.CoopNeighbours.size(); j++) {
@@ -551,5 +597,10 @@ public class Agent {
 	public void reviseAbility(double p, double exp, int sign) {
 		// TODO Auto-generated method stub
 		ability = ability * (1 + sign * Math.pow(1 - p, exp));
+		if(ability>1){
+			ability = 1;
+		}else if(ability<0){
+			ability = 0;
+		}
 	}
 }

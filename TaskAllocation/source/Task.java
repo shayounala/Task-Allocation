@@ -71,6 +71,11 @@ public class Task {
 			}
 		}
 
+		System.out.println("rateresource"+rate_Resources);
+		for(int i=0;i<agent.CoopNeighbours.size();i++){
+			System.out.println(agent.CoopNeighbours.get(i).getAgent_LeftResources().getValue());
+		}
+		
 		if (!Agent.Cooperation) {
 			double maxrate_Resources = Math.max(
 					Math.sqrt((1 + Math.pow(rate_Resources, -1)) / 3), 1.0);
@@ -118,6 +123,11 @@ public class Task {
 			excepted_Resource = Factory.createBlankResource();
 			for (int i = 0; i < Resource.Number_Types; i++) {
 				excepted_Resource.Number_Resource[i] = supplied_Resource[i];
+			}
+			
+			if(excepted_Resource.getValue()>4000){
+				System.out.println("expectedresource");
+				System.exit(0);
 			}
 
 		}
@@ -177,7 +187,8 @@ public class Task {
 						if (allocated_Agent.CoopNeighbours.get(j).WaitedTasks_Resource
 								.get(index_task).getValue() < 0) {
 							System.out
-									.println("check Task function finish (<0)");
+									.println("check Task function finish (<0)!");
+							System.out.println(this.excepted_Resource.getValue());
 
 							System.exit(0);
 						}
@@ -285,6 +296,11 @@ public class Task {
 		Agent agent;
 		switch (this.state) {
 		case Task.FAIL:
+			percent = (double)this.excepted_Resource.getValue();
+			percent = percent/200;
+			if(percent>1){
+				percent = 1;
+			}
 			agent = this.AllocatedAgents.get(this.AllocatedAgents.size() - 1);
 			agent.reviseAbility(percent, Task.medium, -1);
 			for (int i = 0; i < agent.CoopNeighbours.size(); i++) {
@@ -293,14 +309,26 @@ public class Task {
 			}
 			break;
 		case Task.FAILURE:
+			percent = (double)this.Task_Resources.getValue();
+			percent = percent/200;
+			if(percent>1){
+				percent = 1;
+			}
 			agent = this.AllocatedAgents.get(this.AllocatedAgents.size() - 1);
-			agent.reviseAbility(percent, Task.small, -1);
+			agent.reviseAbility(percent, Task.large, 1);
 			for (int i = 0; i < agent.CoopNeighbours.size(); i++) {
-				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.small,
-						-1);
+				agent.CoopNeighbours.get(i).reviseAbility(percent, Task.medium,
+						1);
 			}
 			break;
 		case Task.ALLOOCATED:
+			percent = (double)this.excepted_Resource.getValue();
+			percent = percent/200;
+			if(percent>1){
+				percent = 1;
+			}
+			percent = 1-percent;
+			percent = 1;
 			agent = this.AllocatedAgents.get(this.AllocatedAgents.size() - 1);
 			agent.reviseAbility(percent, Task.large, -1);
 			for (int i = 0; i < agent.CoopNeighbours.size(); i++) {
@@ -309,12 +337,20 @@ public class Task {
 			}
 			break;
 		case Task.TRANSFER:
+			percent = 1;
 			this.AllocatedAgents.get(this.AllocatedAgents.size() - 1)
 					.reviseAbility(percent, Task.small, 1);
 			this.AllocatedAgents.get(this.AllocatedAgents.size() - 2)
 					.reviseAbility(percent, Task.small, 1);
 			break;
 		case Task.FINISH:
+			percent = (double)this.excepted_Resource.getValue();
+			percent = percent/200;
+			if(percent>1){
+				percent = 1;
+			}
+			percent = 1-percent;
+			percent = 1;
 			agent = this.AllocatedAgents.get(this.AllocatedAgents.size() - 1);
 			agent.reviseAbility(percent, Task.large, 1);
 			for (int i = 0; i < agent.CoopNeighbours.size(); i++) {

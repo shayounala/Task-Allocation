@@ -4,6 +4,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import sun.management.resources.agent;
+
 public class Allocation {
 
 	public static int Max_TaskRate;
@@ -21,6 +23,7 @@ public class Allocation {
 	public static int Method;
 	public static int[][] agentcooperationmatrix;
 	public static int[][] agenttransfermatrix;
+	public static int strategies;
 
 	private static ArrayList<Agent> Agents;
 	private Task[][] Tasks;
@@ -73,8 +76,8 @@ public class Allocation {
 				// }
 			}
 
-			System.out.println("Tasks execution finished");
-
+			System.out.println("Tasks execution finished"+i);
+			
 			if (dynamic) {
 				// rebuildComStructure();
 			}
@@ -86,6 +89,7 @@ public class Allocation {
 
 			System.out.println("New tasks finished");
 
+			int loop = 0;
 			while (tasks_Left.size() != 0) {
 				for (int j = 0; j < tasks_Left.size(); j++) {
 					Task task_TobeAllocated = tasks_Left.get(j);
@@ -120,8 +124,22 @@ public class Allocation {
 
 					if (task_TobeAllocated.better_Value == 0
 							&& agent_Current.ComNeighbours.size() != 0) {
-						task_TobeAllocated.AllocatedAgents
-								.add(agent_Current.ComNeighbours.get(0));
+						double maxability = 0;
+						int neighborindex = 0;
+						for(int k=0;k<agent_Current.ComNeighbours.size();k++){
+							Agent agentneighbor = agent_Current.ComNeighbours.get(k);
+							if(agentneighbor.ability>=maxability && task_TobeAllocated.AllocatedAgents.indexOf(agentneighbor) == -1){
+								neighborindex = k;
+								maxability = agent_Current.ComNeighbours.get(k).ability;
+							}
+						}
+
+						if(task_TobeAllocated.AllocatedAgents.indexOf(agent_Current.ComNeighbours.get(neighborindex)) == -1){
+							task_TobeAllocated.AllocatedAgents.add(agent_Current.ComNeighbours.get(neighborindex));
+						}else{
+							task_TobeAllocated.AllocatedAgents.add(new Agent());
+						}
+								
 					} else if (task_TobeAllocated.better_Value == 0) {
 						task_TobeAllocated.AllocatedAgents.add(new Agent());
 					}
@@ -141,13 +159,14 @@ public class Allocation {
 							.Allocation_MaxValue(task_TobeAllocated);
 
 				}
-				System.out.println("Accept or Transfer finished");
+				System.out.println("Accept or Transfer finished"+i);
+
 
 				for (int j = 0; j < Agents.size(); j++) {
 					Agent agent = Agents.get(j);
 					agent.ChooseTask();
 				}
-				System.out.println("Final Allocation finished");
+				System.out.println("Final Allocation finished"+i);
 
 				for (int j = 0; j < tasks_Left.size(); j++) {
 					Task task_TobeAllocated = tasks_Left.get(j);
@@ -216,9 +235,12 @@ public class Allocation {
 						task_TobeAllocated.updateAbility();
 						agent_Allocation.releasetask(task_TobeAllocated);
 						agent_Allocation.unAllocateTask(task_TobeAllocated);
+						task_TobeAllocated.state = Task.LEFT;
 
 					}
 				}
+				
+				System.out.println("Allocation finished"+i);
 
 				for (int j = 0; j < tasks_Left.size(); j++) {
 					tasks_Left.get(j).better_Value = 0;
@@ -227,8 +249,28 @@ public class Allocation {
 				for (int j = 0; j < Agents.size(); j++) {
 					Agents.get(j).setBooked_LeftResource(false);
 				}
+				
+				
+				loop++;
+				if(loop>Allocation.Number_Agent){
+					System.out.println("Loop: "+loop);
+					for(int j=0;j<tasks_Left.size();j++){
+						Task task = tasks_Left.get(j);
+						System.out.println("Task: "+j);
+						for(int k=0;k<task.AllocatedAgents.size();k++){
+							System.out.println(task.AllocatedAgents.get(k).Mainkey+" "+task.AllocatedAgents.get(k).ComNeighbours.size()+" "+task.AllocatedAgents.get(k).ability);
+						}
+					}
+					
+					for(int j=0;j<Allocation.netprofits.size();j++){
+						System.out.println("NetProfits: "+Allocation.netprofits.get(j)+" ExpectedProfits: "+Allocation.expectedprofits.get(j));
+					}
+					
+					System.exit(0);
+				}
 			}
 
+			
 		}
 
 		// Calculate the average degree of communication and cooperation network
@@ -245,8 +287,53 @@ public class Allocation {
 		System.out.println("The Finished Tasks are " + tasks_Finish.size());
 		System.out.println("The Allocated Tasks are " + tasks_Allocated.size());
 		System.out.println("The Failed Tasks are " + tasks_Fail.size());
+		System.out.println("The Failure Tasks are " + tasks_Failure.size());
 		System.out.println("The Left Tasks are " + tasks_Left.size());
+		for(int i=0;i<tasks_Fail.size();i++){
+			Task failedtask = tasks_Fail.get(i);
+			System.out.println("Failed Task "+i+": "+tasks_Fail.get(i).AllocatedAgents.size());
+			for(int j=0;j<failedtask.AllocatedAgents.size();j++){
+				Agent transferagent = failedtask.AllocatedAgents.get(j);
+				if(j != failedtask.AllocatedAgents.size()-1){
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(failedtask))+" Ability: "+transferagent.ability);
+				}else{
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.ability);
+				}
+			}
+		}
+		
+		
+		for(int i=0;i<tasks_Finish.size();i++){
+			Task finishedtask = tasks_Finish.get(i);
+			System.out.println("Finished Task "+i+": "+tasks_Finish.get(i).AllocatedAgents.size());
+			for(int j=0;j<finishedtask.AllocatedAgents.size();j++){
+				Agent transferagent = finishedtask.AllocatedAgents.get(j);
+				if(j != finishedtask.AllocatedAgents.size()-1){
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(finishedtask))+" Ability: "+transferagent.ability);
+				}else{
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.ability);
+				}
+			}
+		}
 
+	}
+
+	private void verifyresults() {
+		// TODO Auto-generated method stub
+		for(int i=0;i<this.Agents.size();i++){
+			for(int j=0;j<Resource.Number_Types;j++){
+				int totalresource = Agents.get(i).Agent_Resources.Number_Resource[j];
+				int leftresource = Agents.get(i).getAgent_LeftResources().Number_Resource[j];
+				int usedresource = 0;
+				for(int k=0;k<Agents.get(i).WaitedTasks_Resource.size();k++){
+					usedresource += Agents.get(i).WaitedTasks_Resource.get(k).Number_Resource[j];
+				}
+				if(totalresource < leftresource){
+					System.out.println("Total Resource: "+totalresource+" Left Resource: "+leftresource+" Used Resource: "+usedresource);
+					System.exit(0);
+				}
+			}
+		}
 	}
 
 	private void rebuildComStructure(Task task_TobeAllocated) {

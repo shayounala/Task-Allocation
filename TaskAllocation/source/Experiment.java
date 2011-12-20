@@ -14,9 +14,9 @@ import org.eclipse.swt.widgets.Display;
 
 public class Experiment {
 
-	protected static int experiment_Number;// total times
+	public static int experiment_Number;// total times
 	public static int currentNum_Experiment;// right now
-	protected static Allocation experiment;
+	public static Allocation experiment;
 	public static FileOutputStream results;// Save all the Results for all the
 											// time
 	public static FileOutputStream usefulResults;// Save useful Results just now
@@ -88,6 +88,7 @@ public class Experiment {
 					currentNum_Experiment += 1;
 				}
 				System.out.println("Finish");
+				System.out.println(Allocation.strategies);
 				// System.exit(0);
 			}
 
@@ -116,25 +117,26 @@ public class Experiment {
 		Agent.MinResource = 5;
 		int part = (currentNum_Experiment - 1) / 50;
 		Agent.Percent_Profit = 0.4 + 0.2 * part;
-		Agent.stragetyfordiffusion = Agent.NOPE;
+		Agent.stragetyfordiffusion = Agent.CON;
 		Agent.Cooperation = true;
 
 		Allocation.Max_TaskRate = 5;
 		Allocation.Min_TaskRate = 5;
 		Allocation.Allocation_Time = 40;
 		Allocation.Number_Agent = 200;
-		Allocation.MaxDistance = 0.15;
+		Allocation.MaxDistance = 0.16;
 		Allocation.para_ComStructure = 0;
 		Allocation.probability_ComStructure = 0;
 		Allocation.dynamic = false;
-		Allocation.Method = 111;
+		Allocation.Method = 111113;
 		Allocation.agentcooperationmatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
 		Allocation.agenttransfermatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
+		Allocation.strategies = 0;
 
 		setAllocationMethod(Allocation.Method);
-		// setMaxDistance();
-		// setTaskRate();
-		// setMethod();
+		//setMaxDistance();
+		//setTaskRate();
+		//setMethod();
 		try {
 			results = new FileOutputStream("results.txt", true);
 			if (currentNum_Experiment == 1) {
@@ -152,8 +154,8 @@ public class Experiment {
 	@SuppressWarnings("unused")
 	private static void setMethod() {
 		// TODO Auto-generated method stub
-		int number = (currentNum_Experiment - 1) / 300;
-		number = number * 2 + 4;
+		int number = (currentNum_Experiment - 1) % 700;
+		number = number/50;
 		switch (number) {
 		case 0:
 			setAllocationMethod(1);
@@ -179,14 +181,30 @@ public class Experiment {
 		case 7:
 			setAllocationMethod(1111);
 			break;
+		case 8:
+			setAllocationMethod(11111);
+			break;
+		case 9:
+			setAllocationMethod(11112);
+			break;
+		case 10:
+			setAllocationMethod(11113);
+		case 11:
+			setAllocationMethod(111111);
+			break;
+		case 12:
+			setAllocationMethod(111112);
+			break;
+		case 13:
+			setAllocationMethod(111113);
 		}
 	}
 
 	@SuppressWarnings("unused")
 	private static void setMaxDistance() {
 		// TODO Auto-generated method stub
-		int number = (currentNum_Experiment - 1) % 300;
-		number = number / 50;
+		int number = (currentNum_Experiment - 1) % 4200;
+		number = number / 700;
 		switch (number) {
 		case 0:
 			Allocation.MaxDistance = 0.08;
@@ -212,7 +230,7 @@ public class Experiment {
 	@SuppressWarnings("unused")
 	private static void setTaskRate() {
 		// TODO Auto-generated method stub
-		if (currentNum_Experiment > 2400) {
+		if (currentNum_Experiment > 4200) {
 			Allocation.Max_TaskRate = 5;
 			Allocation.Min_TaskRate = 5;
 			Allocation.Allocation_Time = 40;
@@ -233,41 +251,88 @@ public class Experiment {
 			Allocation.Method = 11;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 12:
 			Allocation.Method = 12;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = false;
 			Agent.Percent_Profit = 0;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 13:
 			Allocation.Method = 13;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = false;
 			Agent.Percent_Profit = 1;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 111:
 			Allocation.Method = 111;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 112:
 			Allocation.Method = 112;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = false;
 			Agent.Percent_Profit = 0;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 113:
 			Allocation.Method = 113;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = false;
 			Agent.Percent_Profit = 1;
+			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 1111:
 			Allocation.Method = 1111;
 			Allocation.para_ComStructure = Allocation.Number_Agent;
 			Allocation.probability_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.stragetyfordiffusion = Agent.NOPE;
+			break;
+		case 11111:
+			Allocation.Method = 11111;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = true;
+			Agent.stragetyfordiffusion = Agent.CON;
+			break;
+		case 11112:
+			Allocation.Method = 11112;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = false;
+			Agent.Percent_Profit = 0;
+			Agent.stragetyfordiffusion = Agent.CON;
+			break;
+		case 11113:
+			Allocation.Method = 11113;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = false;
+			Agent.Percent_Profit = 1;
+			Agent.stragetyfordiffusion = Agent.CON;
+			break;
+		case 111111:
+			Allocation.Method = 111111;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = true;
+			Agent.stragetyfordiffusion = Agent.THRES;
+			break;
+		case 111112:
+			Allocation.Method = 111112;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = false;
+			Agent.Percent_Profit = 0;
+			Agent.stragetyfordiffusion = Agent.THRES;
+			break;
+		case 111113:
+			Allocation.Method = 111113;
+			Allocation.para_ComStructure = 0;
+			Agent.Cooperation = false;
+			Agent.Percent_Profit = 1;
+			Agent.stragetyfordiffusion = Agent.THRES;
 			break;
 		}
 
