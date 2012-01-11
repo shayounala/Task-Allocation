@@ -2,9 +2,10 @@ package source;
 
 public class Factory {
 
-	public static Task createTask() {
+	public static Task createTask(int mainkey) {
 		// TODO Auto-generated method stub
 		Task NewTask = new Task();
+		NewTask.mainkey = mainkey;
 		NewTask.state = Task.LEFT;
 		NewTask.flag = true;
 		NewTask.Task_Resources = Factory.createTask_Resources(NewTask);
@@ -42,6 +43,7 @@ public class Factory {
 		NewAgent.setAgent_LeftResources(NewAgent.Agent_Resources.clone());
 		NewAgent.Income = 0;
 		NewAgent.ability = 1;
+		NewAgent.diffusionfactor = 1;
 		NewAgent.setBooked_LeftResource(false);
 		return NewAgent;
 	}

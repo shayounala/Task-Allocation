@@ -78,7 +78,7 @@ public class Test {
 
 		}
 		{// Test the Task
-			Task task = Factory.createTask();
+			Task task = Factory.createTask(0);
 			for (int i = 0; i < task.Task_Resources.Number_Resource.length; i++) {
 				System.out.println("The Resource of the Type " + i + ": "
 						+ task.Task_Resources.Number_Resource[i]);

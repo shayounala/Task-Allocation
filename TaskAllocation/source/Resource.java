@@ -30,7 +30,7 @@ public class Resource implements Cloneable {
 			ResourceValue += Number_Resource[i];
 			//System.out.println("Number_Resource "+i+": "+Number_Resource[i]);
 		}
-		System.out.println(ResourceValue);
+		/*System.out.println(ResourceValue);*/
 
 		return ResourceValue;
 	}

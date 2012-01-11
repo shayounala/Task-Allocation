@@ -15,6 +15,19 @@ public class Agent {
 	private boolean booked_LeftResource;
 
 	public void setBooked_LeftResource(boolean booked_LeftResource) {
+			double bookedResource_percent = 0;
+			for (int i = 0; i < this.WaitedTasks.size(); i++) {
+				if (this.WaitedTasks.get(i).state == Task.LEFT){
+					bookedResource_percent += this.WaitedTasks_Resource.get(i).getValue();
+				}
+			}
+			bookedResource_percent = bookedResource_percent/this.getAgent_LeftResources().getValue();
+			
+			if(bookedResource_percent>1){
+				this.ability = 1/bookedResource_percent;
+			}else{
+				this.ability = 1;
+			}
 		this.booked_LeftResource = booked_LeftResource;
 	}
 
@@ -33,7 +46,7 @@ public class Agent {
 
 	public void setAgent_LeftResources(Resource agent_LeftResources) {
 		Agent_LeftResources = agent_LeftResources;
-		booked_LeftResource = false;
+		setBooked_LeftResource(false);
 	}
 
 	public double Income;// The total income that the agent gets.
@@ -50,6 +63,7 @@ public class Agent {
 	public ArrayList<Agent> CoopNeighbours;
 	public int TotalNumber_Resource;
 	public double ability;
+	public double diffusionfactor;
 
 	public Agent() {// Initialization
 		AcceptedTasks = new ArrayList<Task>();
@@ -85,7 +99,7 @@ public class Agent {
 		}
 
 		if (task.AllocatedAgents.get(task.AllocatedAgents.size() - 1) != this) {
-			System.out.println(task.AllocatedAgents.size());
+			//System.out.println(task.AllocatedAgents.size());
 			return;
 		}
 
@@ -95,7 +109,7 @@ public class Agent {
 				if (supplied_Resource[j] != 0
 						&& this.CoopNeighbours.get(i).getAgent_LeftResources().Number_Resource[j] != 0
 						&& !isNeededforTask) {
-					this.CoopNeighbours.get(i).booked_LeftResource = true;
+					this.CoopNeighbours.get(i).setBooked_LeftResource(true);
 					isNeededforTask = true;
 					this.CoopNeighbours.get(i).WaitedTasks.add(task);
 					this.CoopNeighbours.get(i).WaitedAgents.add(this);
@@ -131,9 +145,9 @@ public class Agent {
 			this.WaitedTasks_Resource.add(Factory.createBlankResource());
 		}
 
-		System.out.println("check Calculate Income in class agent");
+		//System.out.println("check Calculate Income in class agent");
 		for (int i = 0; i < this.CoopNeighbours.size(); i++) {
-			System.out.println("Agent" + this.CoopNeighbours.get(i).Mainkey);
+			//System.out.println("Agent" + this.CoopNeighbours.get(i).Mainkey);
 			for (int j = 0; j < Resource.Number_Types; j++) {
 				int index_task = this.CoopNeighbours.get(i).WaitedTasks
 						.indexOf(task);
@@ -143,7 +157,7 @@ public class Agent {
 									.get(index_task).Number_Resource[j]);
 				}
 			}
-			System.out.println();
+			//System.out.println();
 		}
 	}
 
@@ -156,13 +170,18 @@ public class Agent {
 		
 		if(task_TobeAllocated.expected_Value == 0){
 			if(task_TobeAllocated.better_Value == 0){
-				if(Agent.stragetyfordiffusion == Agent.THRES && this.ComNeighbours.indexOf(transferredagent)!= -1  && getstragety(this, transferredagent, 0.0, 0.0)){
+				if(Agent.stragetyfordiffusion == Agent.THRES && this.ComNeighbours.indexOf(transferredagent)!= -1  && getstragety(this, transferredagent, task_TobeAllocated, 0.0, 0.0)){
 					transfertask(this, task_TobeAllocated, 0.0);
 				}else{
 					failtask(this, task_TobeAllocated);
 				}
 			}else{
-				double netProfit = Agent.Percent_Profit*(task_TobeAllocated.better_Value-task_TobeAllocated.value);
+				double netProfit;
+				if(Agent.Cooperation){
+					netProfit = 0;
+				}else{
+					netProfit = Agent.Percent_Profit*(task_TobeAllocated.better_Value-task_TobeAllocated.value);
+				}
 				transfertask(this, task_TobeAllocated, netProfit);
 			}
 		}else{
@@ -171,7 +190,7 @@ public class Agent {
 			}else{
 				if(Agent.Cooperation){
 					if(task_TobeAllocated.better_Value > task_TobeAllocated.expected_Value){
-						if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, task_TobeAllocated.better_Value, task_TobeAllocated.expected_Value)){
+						if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, task_TobeAllocated, task_TobeAllocated.better_Value, task_TobeAllocated.expected_Value)){
 							accepttask(this, task_TobeAllocated);
 						}else{
 							transfertask(this, task_TobeAllocated, 0.0);
@@ -190,14 +209,14 @@ public class Agent {
 								* task_TobeAllocated.TotalNumber_Resource * task_TobeAllocated.Deadline);
 
 					{
-						Allocation.expectedprofits.add(expectedProfit);
-						Allocation.netprofits.add(netProfit);
+						Allocation.expectedprofit.add(expectedProfit);
+						Allocation.netprofit.add(netProfit);
 					}
 
 					if (netProfit >= expectedProfit && netProfit>0) {
-						//if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, netProfit, expectedProfit)){
-							//accepttask(this, task_TobeAllocated);
-						//}else
+						if(Agent.stragetyfordiffusion == Agent.THRES && getstragety(this, transferredagent, task_TobeAllocated, netProfit, expectedProfit)){
+							accepttask(this, task_TobeAllocated);
+						}else
 						{
 							transfertask(this, task_TobeAllocated, netProfit);
 						}
@@ -212,32 +231,69 @@ public class Agent {
 
 	}
 
-	private boolean getstragety(Agent agent, Agent transferredagent, double i, double j) {
+	private boolean getstragety(Agent agent, Agent transferredagent, Task task, double i, double j) {
 		// TODO Auto-generated method stub
 		double temp = 0.0;
-		if(j != 0){
-			temp = (i-j)/j;
+		double threshold = 0;
+		
+		if(i == 0 && j == 0){
+			
+			threshold = -1;//+agent.diffusionfactor-transferredagent.diffusionfactor;
+			Allocation.thresholdtasks.add(task.mainkey);
+			Allocation.temps.add(temp);
+			Allocation.agentabilities.add(agent.diffusionfactor);
+			Allocation.transferredagentabilities.add(transferredagent.diffusionfactor);
+			Allocation.thresholds.add(threshold);
 		}else{
-			temp = -2;
+			
+			temp = (i-j)/i;
+			if(temp>1){
+				temp = 1;
+			}else if(temp<-1){
+				temp = -1;
+			}
+			
+			double agentability = gettaskability(agent,task);
+			double transferredagentability = gettaskability(transferredagent, task);
+			
+			threshold = temp+agentability-transferredagentability;
+			
+			
+			threshold = 1;
 		}
 		
-		if(temp>1){
-			temp = 1;
-		}else if(temp<-1){
-			temp = -1;
-		}
-		double threshold = temp+agent.ability-transferredagent.ability;
 		
 		Random random = new Random();
 		double randomdouble = random.nextDouble()*2-1;
 		
 		if(randomdouble>=threshold){
 			Allocation.strategies ++;
+			Allocation.thresresults.add(true);
 			return true;
 		}else{
+			Allocation.thresresults.add(false);
 			return false;
 		}
 		
+	}
+
+	private double gettaskability(Agent agent, Task task) {
+		// TODO Auto-generated method stub
+		double agentability = 0.0;
+		double totalagentres = 0;
+		for(int k=0;k<agent.CoopNeighbours.size();k++){
+			Agent agentneighbor = agent.CoopNeighbours.get(k);
+			int index = agentneighbor.WaitedTasks.indexOf(task);
+			if(index != -1){
+				if(agentneighbor.WaitedAgents.get(index) == agent){
+					agentability += agentneighbor.WaitedTasks_Resource.get(index).getValue()*agentneighbor.ability;
+					totalagentres += agentneighbor.WaitedTasks_Resource.get(index).getValue();
+				}
+			}
+		}
+		agentability = agentability/totalagentres;
+		
+		return agentability;
 	}
 
 	private void accepttask(Agent agent, Task task_TobeAllocated) {
@@ -278,30 +334,30 @@ public class Agent {
 					&& this.CoopNeighbours.get(i).WaitedAgents.contains(this)) {
 				if (this.CoopNeighbours.get(i).WaitedAgents.indexOf(this) == this.CoopNeighbours
 						.get(i).WaitedTasks.indexOf(task_TobeAllocated)) {
-					System.out.println(this.CoopNeighbours.get(i).Mainkey);
+/*					System.out.println(this.CoopNeighbours.get(i).Mainkey);*/
 					int index_Task = this.CoopNeighbours.get(i).WaitedTasks
 							.indexOf(task_TobeAllocated);
 					this.CoopNeighbours.get(i).WaitedTasks.remove(index_Task);
 					this.CoopNeighbours.get(i).WaitedAgents.remove(this);
 					this.CoopNeighbours.get(i).WaitedTasks_Resource
 							.remove(index_Task);
-					this.CoopNeighbours.get(i).booked_LeftResource = false;
+					this.CoopNeighbours.get(i).setBooked_LeftResource(false);
 				} else {
-					System.out.println("else "
-							+ this.CoopNeighbours.get(i).Mainkey);
+/*					System.out.println("else "
+							+ this.CoopNeighbours.get(i).Mainkey);*/
 					for (int j = 0; j < this.CoopNeighbours.get(i).WaitedTasks
 							.size(); j++) {
 						if (this.CoopNeighbours.get(i).WaitedTasks.get(j) == task_TobeAllocated
 								&& this.CoopNeighbours.get(i).WaitedAgents
 										.get(j) == this) {
-							System.out
+/*							System.out
 									.println(this.CoopNeighbours.get(i).WaitedAgents
-											.get(j).Mainkey);
+											.get(j).Mainkey);*/
 							this.CoopNeighbours.get(i).WaitedTasks.remove(j);
 							this.CoopNeighbours.get(i).WaitedAgents.remove(j);
 							this.CoopNeighbours.get(i).WaitedTasks_Resource
 									.remove(j);
-							this.CoopNeighbours.get(i).booked_LeftResource = false;
+							this.CoopNeighbours.get(i).setBooked_LeftResource(false);
 							j--;
 						}
 					}
@@ -339,47 +395,47 @@ public class Agent {
 				choosetasks++;
 				Resource currentRes = this.WaitedTasks_Resource
 						.get(task_Orders[i]);
-				System.out.println("Size of Agent Waited Tasks"
+/*				System.out.println("Size of Agent Waited Tasks"
 						+ this.WaitedTasks.size());
 				System.out.println("Mainkey of Agent Who Takes This Task"
-						+ this.WaitedAgents.get(task_Orders[i]).Mainkey);
+						+ this.WaitedAgents.get(task_Orders[i]).Mainkey);*/
 				for (int j = 0; j < Resource.Number_Types; j++) {
-					System.out
+/*					System.out
 							.println("Left:"
 									+ this.Agent_LeftResources.Number_Resource[j]
 									+ " waited "
 									+ this.WaitedTasks_Resource
-											.get(task_Orders[i]).Number_Resource[j]);
+											.get(task_Orders[i]).Number_Resource[j]);*/
 					if (this.Agent_LeftResources.Number_Resource[j] >= currentRes.Number_Resource[j]) {
 						this.Agent_LeftResources.Number_Resource[j] -= currentRes.Number_Resource[j];
-						System.out
+/*						System.out
 								.println("Left:"
 										+ this.Agent_LeftResources.Number_Resource[j]
 										+ " waited "
 										+ this.WaitedTasks_Resource
-												.get(task_Orders[i]).Number_Resource[j]);
+												.get(task_Orders[i]).Number_Resource[j]);*/
 					} else {
 						currentRes.Number_Resource[j] = this.Agent_LeftResources.Number_Resource[j];
 						this.Agent_LeftResources.Number_Resource[j] = 0;
-						System.out
+/*						System.out
 								.println("Left:"
 										+ this.Agent_LeftResources.Number_Resource[j]
 										+ " waited "
 										+ this.WaitedTasks_Resource
-												.get(task_Orders[i]).Number_Resource[j]);
+												.get(task_Orders[i]).Number_Resource[j]);*/
 					}
 				}
 			} else if (choosetasks >= Allocation.Max_TaskRate
 					&& this.WaitedTasks.get(task_Orders[i]).state == Task.LEFT) {
-				System.out.println("class agent function chooseTask"
-						+ choosetasks);
+/*				System.out.println("class agent function chooseTask"
+						+ choosetasks);*/
 				Agent currentAgent = this.WaitedAgents.get(task_Orders[i]);
 				// output the cooperation neighbors of main agent
-				System.out.println("The Cooperation Neighbors of Agent: "
-						+ currentAgent.Mainkey);
+/*				System.out.println("The Cooperation Neighbors of Agent: "
+						+ currentAgent.Mainkey);*/
 				for (int j = 0; j < currentAgent.CoopNeighbours.size(); j++) {
-					System.out.println("Agent: "
-							+ currentAgent.CoopNeighbours.get(j).Mainkey);
+/*					System.out.println("Agent: "
+							+ currentAgent.CoopNeighbours.get(j).Mainkey);*/
 				}
 				System.exit(0);
 			}
@@ -396,22 +452,22 @@ public class Agent {
 				+ task_TobeAllocated.better_Value);
 		Resource neededResource = task_TobeAllocated.excepted_Resource.clone();
 		for (int i = 0; i < Resource.Number_Types; i++) {
-			System.out.println("isAllocationSucced");
+/*			System.out.println("isAllocationSucced");
 			System.out
 					.println(task_TobeAllocated.Task_Resources.Number_Resource[i]);
 			System.out.println(neededResource.Number_Resource[i]);
 			System.out
-					.println(task_TobeAllocated.excepted_Resource.Number_Resource[i]);
+					.println(task_TobeAllocated.excepted_Resource.Number_Resource[i]);*/
 			for (int j = 0; j < this.CoopNeighbours.size(); j++) {
 				int index_Task = this.CoopNeighbours.get(j).WaitedTasks
 						.indexOf(task_TobeAllocated);
 				if (index_Task != -1) {
-					System.out.println("Agent"
+/*					System.out.println("Agent"
 							+ this.CoopNeighbours.get(j).Mainkey);
-					System.out.println(neededResource.Number_Resource[i]);
+					System.out.println(neededResource.Number_Resource[i]);*/
 					neededResource.Number_Resource[i] -= this.CoopNeighbours
 							.get(j).WaitedTasks_Resource.get(index_Task).Number_Resource[i];
-					System.out.println(neededResource.Number_Resource[i]);
+/*					System.out.println(neededResource.Number_Resource[i]);*/
 				}
 			}
 		}
@@ -479,9 +535,9 @@ public class Agent {
 				for (int k = 0; k < Resource.Number_Types; k++) {
 					this.CoopNeighbours.get(j).Agent_LeftResources.Number_Resource[k] += this.CoopNeighbours
 							.get(j).WaitedTasks_Resource.get(index_task).Number_Resource[k];
-					System.out
+/*					System.out
 							.println(this.CoopNeighbours.get(j).WaitedTasks_Resource
-									.get(index_task).Number_Resource[k]);
+									.get(index_task).Number_Resource[k]);*/
 				}
 				// System.out.println("Agent"+allocated_Agent.CoopNeighbours.get(j).Mainkey+"  Value "+allocated_Agent.CoopNeighbours.get(j).WaitedTasks_Resource.get(index_task).getValue());
 			}
@@ -596,11 +652,11 @@ public class Agent {
 
 	public void reviseAbility(double p, double exp, int sign) {
 		// TODO Auto-generated method stub
-		ability = ability * (1 + sign * Math.pow(1 - p, exp));
-		if(ability>1){
-			ability = 1;
-		}else if(ability<0){
-			ability = 0;
+		diffusionfactor = diffusionfactor * (1 + sign * (1-Math.pow(1 - p, exp)));
+		if(diffusionfactor>1){
+			diffusionfactor = 1;
+		}else if(diffusionfactor<0){
+			diffusionfactor = 0;
 		}
 	}
 }

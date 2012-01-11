@@ -4,7 +4,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import sun.management.resources.agent;
 
 public class Allocation {
 
@@ -18,8 +17,14 @@ public class Allocation {
 	public static double MaxDistance;
 	public static double averageComStructure;
 	public static double averageCoopStructure;
-	public static ArrayList<Double> expectedprofits;
-	public static ArrayList<Double> netprofits;
+	public static ArrayList<Double> expectedprofit;
+	public static ArrayList<Double> netprofit;
+	public static ArrayList<Integer> thresholdtasks;
+	public static ArrayList<Double> temps;
+	public static ArrayList<Double> agentabilities;
+	public static ArrayList<Double> transferredagentabilities;
+	public static ArrayList<Double> thresholds;
+	public static ArrayList<Boolean> thresresults;
 	public static int Method;
 	public static int[][] agentcooperationmatrix;
 	public static int[][] agenttransfermatrix;
@@ -37,6 +42,7 @@ public class Allocation {
 	private ArrayList<Task> tasks_Failure;
 	private DataOutputStream dataoutput;
 	private DataOutputStream resultoutput;
+	private DataOutputStream averageresultsoutput;
 
 	public static boolean initiation_Finish = false;
 
@@ -49,8 +55,8 @@ public class Allocation {
 		tasks_Fail = new ArrayList<Task>();
 		tasks_Failure = new ArrayList<Task>();
 
-		expectedprofits = new ArrayList<Double>();
-		netprofits = new ArrayList<Double>();
+		expectedprofit = new ArrayList<Double>();
+		netprofit = new ArrayList<Double>();
 	}
 
 	public void RunAllocation() {
@@ -83,7 +89,7 @@ public class Allocation {
 			}
 
 			for (int j = 0; j < Tasks[i].length; j++) {
-				Tasks[i][j] = Factory.createTask();
+				Tasks[i][j] = Factory.createTask(i*Allocation.Max_TaskRate+j);
 				tasks_Left.add(Tasks[i][j]);
 			}
 
@@ -128,9 +134,9 @@ public class Allocation {
 						int neighborindex = 0;
 						for(int k=0;k<agent_Current.ComNeighbours.size();k++){
 							Agent agentneighbor = agent_Current.ComNeighbours.get(k);
-							if(agentneighbor.ability>=maxability && task_TobeAllocated.AllocatedAgents.indexOf(agentneighbor) == -1){
+							if(agentneighbor.diffusionfactor>=maxability && task_TobeAllocated.AllocatedAgents.indexOf(agentneighbor) == -1){
 								neighborindex = k;
-								maxability = agent_Current.ComNeighbours.get(k).ability;
+								maxability = agent_Current.ComNeighbours.get(k).diffusionfactor;
 							}
 						}
 
@@ -258,12 +264,12 @@ public class Allocation {
 						Task task = tasks_Left.get(j);
 						System.out.println("Task: "+j);
 						for(int k=0;k<task.AllocatedAgents.size();k++){
-							System.out.println(task.AllocatedAgents.get(k).Mainkey+" "+task.AllocatedAgents.get(k).ComNeighbours.size()+" "+task.AllocatedAgents.get(k).ability);
+							System.out.println(task.AllocatedAgents.get(k).Mainkey+" "+task.AllocatedAgents.get(k).ComNeighbours.size()+" "+task.AllocatedAgents.get(k).diffusionfactor);
 						}
 					}
 					
-					for(int j=0;j<Allocation.netprofits.size();j++){
-						System.out.println("NetProfits: "+Allocation.netprofits.get(j)+" ExpectedProfits: "+Allocation.expectedprofits.get(j));
+					for(int j=0;j<Allocation.netprofit.size();j++){
+						System.out.println("NetProfits: "+Allocation.netprofit.get(j)+" ExpectedProfits: "+Allocation.expectedprofit.get(j));
 					}
 					
 					System.exit(0);
@@ -291,13 +297,13 @@ public class Allocation {
 		System.out.println("The Left Tasks are " + tasks_Left.size());
 		for(int i=0;i<tasks_Fail.size();i++){
 			Task failedtask = tasks_Fail.get(i);
-			System.out.println("Failed Task "+i+": "+tasks_Fail.get(i).AllocatedAgents.size());
+			System.out.println("Failed Task "+i+": "+tasks_Fail.get(i).AllocatedAgents.size()+" Mainkey: "+tasks_Fail.get(i).mainkey);
 			for(int j=0;j<failedtask.AllocatedAgents.size();j++){
 				Agent transferagent = failedtask.AllocatedAgents.get(j);
 				if(j != failedtask.AllocatedAgents.size()-1){
-					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(failedtask))+" Ability: "+transferagent.ability);
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(failedtask))+" Ability: "+transferagent.diffusionfactor);
 				}else{
-					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.ability);
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.diffusionfactor);
 				}
 			}
 		}
@@ -305,22 +311,28 @@ public class Allocation {
 		
 		for(int i=0;i<tasks_Finish.size();i++){
 			Task finishedtask = tasks_Finish.get(i);
-			System.out.println("Finished Task "+i+": "+tasks_Finish.get(i).AllocatedAgents.size());
+			System.out.println("Finished Task "+i+": "+tasks_Finish.get(i).AllocatedAgents.size()+" Mainkey: "+tasks_Finish.get(i).mainkey);
 			for(int j=0;j<finishedtask.AllocatedAgents.size();j++){
 				Agent transferagent = finishedtask.AllocatedAgents.get(j);
 				if(j != finishedtask.AllocatedAgents.size()-1){
-					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(finishedtask))+" Ability: "+transferagent.ability);
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+transferagent.transfer_Income.get(transferagent.TransferedTasks.indexOf(finishedtask))+" Ability: "+transferagent.diffusionfactor);
 				}else{
-					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.ability);
+					System.out.println("Transfer Profit of Agent"+transferagent.Mainkey+" : "+" Ability: "+transferagent.diffusionfactor);
 				}
 			}
+		}
+		
+		
+		for(int i=0;i<Allocation.thresholds.size();i++){
+			System.out.println(i+"  Mainkey: "+thresholdtasks.get(i)+" Threshold: "+thresholds.get(i)+" Temp: "+temps.get(i)+" Agent Abilities: "+agentabilities.get(i)+" Transferred Agent Abilities: "+transferredagentabilities.get(i)+"  "+thresresults.get(i));
 		}
 
 	}
 
+	@SuppressWarnings("unused")
 	private void verifyresults() {
 		// TODO Auto-generated method stub
-		for(int i=0;i<this.Agents.size();i++){
+		for(int i=0;i<Agents.size();i++){
 			for(int j=0;j<Resource.Number_Types;j++){
 				int totalresource = Agents.get(i).Agent_Resources.Number_Resource[j];
 				int leftresource = Agents.get(i).getAgent_LeftResources().Number_Resource[j];
@@ -637,6 +649,8 @@ public class Allocation {
 		// output the total profit
 		try {
 			resultoutput.writeBytes(system_Income + "	" + total_basic + "	");
+			Experiment.incomes.add(system_Income);
+			Experiment.basics.add(total_basic);
 			// resultoutput.writeBytes(System.getProperty("line.separator"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -656,6 +670,9 @@ public class Allocation {
 		try {
 			resultoutput.writeBytes(averageDiffusionDepth + "	"
 					+ averageDiffusionCost + "	" + averageExecutionCost + "	");
+			Experiment.diffusiondepths.add(averageDiffusionDepth);
+			Experiment.diffusioncosts.add(averageDiffusionCost);
+			Experiment.executioncosts.add(averageExecutionCost);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -666,6 +683,11 @@ public class Allocation {
 			resultoutput.writeBytes(this.tasks_Finish.size() + "	"
 					+ this.tasks_Allocated.size() + "	"
 					+ this.tasks_Failure.size() + "	");
+			
+			Experiment.finishedtasks.add(this.tasks_Finish.size());
+			Experiment.allocatedtasks.add(this.tasks_Allocated.size());
+			Experiment.failuretasks.add(this.tasks_Failure.size());
+			Experiment.failedtasks.add(this.tasks_Fail.size());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -673,17 +695,19 @@ public class Allocation {
 
 		// output the average expected and better profit
 		double averageexpectedprofit = 0, averagebetterprofit = 0;
-		for (int i = 0; i < expectedprofits.size(); i++) {
-			averageexpectedprofit += expectedprofits.get(i);
-			averagebetterprofit += netprofits.get(i);
+		for (int i = 0; i < expectedprofit.size(); i++) {
+			averageexpectedprofit += expectedprofit.get(i);
+			averagebetterprofit += netprofit.get(i);
 		}
 
-		averageexpectedprofit = averageexpectedprofit / expectedprofits.size();
-		averagebetterprofit = averagebetterprofit / netprofits.size();
+		averageexpectedprofit = averageexpectedprofit / expectedprofit.size();
+		averagebetterprofit = averagebetterprofit / netprofit.size();
 
 		try {
 			resultoutput.writeBytes(averageexpectedprofit + "	"
 					+ averagebetterprofit + "	");
+			Experiment.expectedprofits.add(averageexpectedprofit);
+			Experiment.betterprofits.add(averagebetterprofit);
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
@@ -693,6 +717,10 @@ public class Allocation {
 		try {
 			resultoutput.writeBytes(Allocation.averageComStructure + "	"
 					+ Allocation.averageCoopStructure + "	");
+			
+			Experiment.communications.add(Allocation.averageComStructure);
+			Experiment.cooperations.add(Allocation.averageCoopStructure);
+			
 			resultoutput.writeBytes(System.getProperty("line.separator"));
 			if (Experiment.currentNum_Experiment % 50 == 0) {
 				resultoutput.writeBytes(System.getProperty("line.separator"));
@@ -711,8 +739,50 @@ public class Allocation {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		averageresultsoutput = new DataOutputStream(Experiment.averageresults);
+		
+		if(Experiment.currentNum_Experiment%50 == 0){
+			
+			try {
+				averageresultsoutput.writeBytes(Allocation.Method + "	" + Agent.Cooperation
+						+ "	" + Agent.Percent_Profit + "	"
+						+ Allocation.Max_TaskRate + "	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.incomes)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.basics)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.diffusiondepths)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.diffusioncosts)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.executioncosts)+"	");
+				averageresultsoutput.writeBytes(getaverageresultsInteger(Experiment.finishedtasks)+"	");
+				averageresultsoutput.writeBytes(getaverageresultsInteger(Experiment.allocatedtasks)+"	");
+				averageresultsoutput.writeBytes(getaverageresultsInteger(Experiment.failedtasks)+"	");
+				averageresultsoutput.writeBytes(getaverageresultsInteger(Experiment.failuretasks)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.expectedprofits)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.betterprofits)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.communications)+"	");
+				averageresultsoutput.writeBytes(getaverageresults(Experiment.cooperations)+"	");
+				averageresultsoutput.writeBytes(System.getProperty("line.separator"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				averageresultsoutput.flush();
+				averageresultsoutput.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
 
 		dataoutput = new DataOutputStream(Experiment.results);
+		//output the average results of experiment
+		
+		
 		// record the experiment information
 		try {
 			if (Experiment.currentNum_Experiment == 1) {
@@ -810,6 +880,28 @@ public class Allocation {
 			e.printStackTrace();
 		}
 
+	}
+
+	private Double getaverageresults(ArrayList<Double> incomes) {
+		// TODO Auto-generated method stub
+		double average = 0;
+		for(int i=0;i<50;i++){
+			average += incomes.get(i);
+		}
+		average = average/50;
+		incomes.clear();
+		return average;
+	}
+	
+	private double getaverageresultsInteger(ArrayList<Integer> incomes) {
+		// TODO Auto-generated method stub
+		double average = 0;
+		for(int i=0;i<50;i++){
+			average += incomes.get(i);
+		}
+		average = average/50;
+		incomes.clear();
+		return average;
 	}
 
 	public ArrayList<Agent> getAgents() {

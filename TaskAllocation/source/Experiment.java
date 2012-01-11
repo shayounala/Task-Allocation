@@ -3,6 +3,7 @@ package source;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
@@ -20,6 +21,7 @@ public class Experiment {
 	public static FileOutputStream results;// Save all the Results for all the
 											// time
 	public static FileOutputStream usefulResults;// Save useful Results just now
+	public static FileOutputStream averageresults;
 	public static DataOutputStream dataoutput;
 	public static Object resultoutput;
 	private static Runnable refresh = new Runnable() {
@@ -55,6 +57,19 @@ public class Experiment {
 		}
 
 	};
+	public static ArrayList<Double> incomes = new ArrayList<Double>();
+	public static ArrayList<Double> basics = new ArrayList<Double>();
+	public static ArrayList<Double> diffusiondepths = new ArrayList<Double>();
+	public static ArrayList<Double> diffusioncosts = new ArrayList<Double>();
+	public static ArrayList<Double> executioncosts = new ArrayList<Double>();
+	public static ArrayList<Integer> finishedtasks = new ArrayList<Integer>();
+	public static ArrayList<Integer> failuretasks = new ArrayList<Integer>();
+	public static ArrayList<Integer> allocatedtasks = new ArrayList<Integer>();
+	public static ArrayList<Integer> failedtasks = new ArrayList<Integer>();
+	public static ArrayList<Double> expectedprofits = new ArrayList<Double>();
+	public static ArrayList<Double> betterprofits = new ArrayList<Double>();
+	public static ArrayList<Double> communications = new ArrayList<Double>();
+	public static ArrayList<Double> cooperations = new ArrayList<Double>();
 
 	/**
 	 * @param args
@@ -78,9 +93,9 @@ public class Experiment {
 			public void run() {
 				// TODO Auto-generated method stub
 				System.out.println("Start the Experiment");
-				experiment_Number = 1;
+				experiment_Number = 6600;
 				currentNum_Experiment = 1;
-				for (int i = 0; i < experiment_Number; i++) {
+				for (int i = currentNum_Experiment-1; i < experiment_Number; i++) {
 					System.out.println("Start the Experiment " + i);
 					Experiment_Initiation();
 					experiment.RunAllocation();
@@ -116,13 +131,13 @@ public class Experiment {
 		Agent.MaxResource = 20;
 		Agent.MinResource = 5;
 		int part = (currentNum_Experiment - 1) / 50;
-		Agent.Percent_Profit = 0.4 + 0.2 * part;
+		Agent.Percent_Profit = 0.2 * part;
 		Agent.stragetyfordiffusion = Agent.CON;
 		Agent.Cooperation = true;
 
-		Allocation.Max_TaskRate = 5;
-		Allocation.Min_TaskRate = 5;
-		Allocation.Allocation_Time = 40;
+		Allocation.Max_TaskRate = 1;
+		Allocation.Min_TaskRate = 1;
+		Allocation.Allocation_Time = 200;
 		Allocation.Number_Agent = 200;
 		Allocation.MaxDistance = 0.16;
 		Allocation.para_ComStructure = 0;
@@ -132,13 +147,24 @@ public class Experiment {
 		Allocation.agentcooperationmatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
 		Allocation.agenttransfermatrix = new int[Allocation.Number_Agent][Allocation.Number_Agent];
 		Allocation.strategies = 0;
+		Allocation.thresholdtasks = new ArrayList<Integer>();
+		Allocation.temps =  new ArrayList<Double>();
+		Allocation.thresholds =  new ArrayList<Double>();
+		Allocation.agentabilities =  new ArrayList<Double>();
+		Allocation.transferredagentabilities =  new ArrayList<Double>();
+		Allocation.thresresults = new ArrayList<Boolean> ();
 
 		setAllocationMethod(Allocation.Method);
-		//setMaxDistance();
-		//setTaskRate();
+		setMaxDistance();
+		setTaskRate();
 		//setMethod();
 		try {
 			results = new FileOutputStream("results.txt", true);
+			if(currentNum_Experiment == 50){
+				averageresults = new FileOutputStream("average results.txt");
+			}else if(currentNum_Experiment%50 == 0){
+				averageresults = new FileOutputStream("average results.txt", true);
+			}
 			if (currentNum_Experiment == 1) {
 				usefulResults = new FileOutputStream("Useful Results.txt");
 			} else {
@@ -154,8 +180,8 @@ public class Experiment {
 	@SuppressWarnings("unused")
 	private static void setMethod() {
 		// TODO Auto-generated method stub
-		int number = (currentNum_Experiment - 1) % 700;
-		number = number/50;
+		int number = (currentNum_Experiment - 1) % 3300;
+		number = number/300;
 		switch (number) {
 		case 0:
 			setAllocationMethod(1);
@@ -189,6 +215,7 @@ public class Experiment {
 			break;
 		case 10:
 			setAllocationMethod(11113);
+			break;
 		case 11:
 			setAllocationMethod(111111);
 			break;
@@ -197,14 +224,15 @@ public class Experiment {
 			break;
 		case 13:
 			setAllocationMethod(111113);
+			break;
 		}
 	}
 
 	@SuppressWarnings("unused")
 	private static void setMaxDistance() {
 		// TODO Auto-generated method stub
-		int number = (currentNum_Experiment - 1) % 4200;
-		number = number / 700;
+		int number = (currentNum_Experiment - 1)%300;
+		number = number/50;
 		switch (number) {
 		case 0:
 			Allocation.MaxDistance = 0.08;
@@ -230,7 +258,7 @@ public class Experiment {
 	@SuppressWarnings("unused")
 	private static void setTaskRate() {
 		// TODO Auto-generated method stub
-		if (currentNum_Experiment > 4200) {
+		if (currentNum_Experiment > 3300) {
 			Allocation.Max_TaskRate = 5;
 			Allocation.Min_TaskRate = 5;
 			Allocation.Allocation_Time = 40;
@@ -246,11 +274,13 @@ public class Experiment {
 		switch (method) {
 		case 1:
 			Allocation.Method = 1;
+			Agent.Percent_Profit = 0;
 			break;
 		case 11:
 			Allocation.Method = 11;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.Percent_Profit = 0;
 			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 12:
@@ -271,6 +301,7 @@ public class Experiment {
 			Allocation.Method = 111;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.Percent_Profit = 0;
 			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 112:
@@ -292,12 +323,14 @@ public class Experiment {
 			Allocation.para_ComStructure = Allocation.Number_Agent;
 			Allocation.probability_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.Percent_Profit = 0;
 			Agent.stragetyfordiffusion = Agent.NOPE;
 			break;
 		case 11111:
 			Allocation.Method = 11111;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.Percent_Profit = 0;
 			Agent.stragetyfordiffusion = Agent.CON;
 			break;
 		case 11112:
@@ -318,6 +351,7 @@ public class Experiment {
 			Allocation.Method = 111111;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = true;
+			Agent.Percent_Profit = 0;
 			Agent.stragetyfordiffusion = Agent.THRES;
 			break;
 		case 111112:
@@ -331,7 +365,7 @@ public class Experiment {
 			Allocation.Method = 111113;
 			Allocation.para_ComStructure = 0;
 			Agent.Cooperation = false;
-			Agent.Percent_Profit = 1;
+			Agent.Percent_Profit = ((currentNum_Experiment-1)%3300)/300*0.1;
 			Agent.stragetyfordiffusion = Agent.THRES;
 			break;
 		}
